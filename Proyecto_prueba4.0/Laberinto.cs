@@ -30,7 +30,9 @@ public class Laberinto
                 laberinto[i, j] = new Celda();
                 if (i == 0 || j == 0 || i == dimensiones - 1 || j == dimensiones - 1)
                 {
-                    laberinto[i, j].Valor = 1; 
+                    laberinto[i, j].Valor = 1;
+                    laberinto[i, j].Esaccesible = false;
+
                 }
                 else
                 {
@@ -48,7 +50,8 @@ public class Laberinto
         {
             int x = rand.Next(2, dimensiones - 2) / 2 * 2; // x par
             int y = rand.Next(2, dimensiones - 2) / 2 * 2; // y par
-            laberinto[y, x].Valor = 1; // Colocar pared
+            laberinto[x, y].Valor = 1; // Colocar pared
+            laberinto[x, y].Esaccesible = false;
 
             // Agregar paredes alrededor
             for (int j = 0; j < 4; j++)
@@ -59,16 +62,20 @@ public class Laberinto
                 if (my[r] >= 0 && my[r] < dimensiones && mx[r] >= 0 && mx[r] < dimensiones && laberinto[my[r], mx[r]].Valor == 0)
                 {
                     laberinto[my[r], mx[r]].Valor = 1; // Colocar pared
+                    laberinto[my[r], mx[r]].Esaccesible = false;
                     // Conectar la pared
                     int midX = (x + mx[r]) / 2;
                     int midY = (y + my[r]) / 2;
                     if (midY >= 0 && midY < dimensiones && midX >= 0 && midX < dimensiones)
                     {
                         laberinto[midY, midX].Valor = 1; // Conectar
+                        laberinto[midY, midX].Esaccesible = false;
                     }
                 }
             }
         }
+        int[,] accesibles=CeldasInaccesibles();
+        QuitarCeldasInaccesibles(accesibles);
         GenerarTrampas();
         SeleccionarCeldas();
     }
@@ -188,5 +195,83 @@ public class Laberinto
             (celda1.Item1 == celda2.Item1 && Math.Abs(celda1.Item2 - celda2.Item2) == 1);
     }
 
-    
+
+    private int[,] CeldasInaccesibles(){
+
+        int [,] distancia=new int[laberinto.GetLength(0),laberinto.GetLength(1)];
+
+        distancia[1,1]=1;
+
+        int[] df={-1,1,0,0,-1,1,-1,1};
+        int[] dc={0,0,1,-1,-1,-1,1,1};
+
+        bool huboCambio;
+
+        do{
+
+            huboCambio=false;
+
+            // Para cada posible celda del tablero 
+            for (int i= 1;i<laberinto.GetLength(0)-1 ; i++){
+
+                for (int j = 1; j <laberinto.GetLength(1)-1; j++)
+                {
+
+                    // Saltarse las celdas no marcadas 
+                    if (distancia [i, j] == 0) continue;
+
+                    // Saltarse las celdas inválidas
+
+                    if (!laberinto[i, j].Esaccesible) continue; // Hay obstáculo en la celda
+
+                    // Inspeccionar celdas vecinas a la celda [i, j]
+
+                    for (int d=0; d<df.Length; d++){
+
+                        int vf=i+df[d];
+
+                        int vc=j+dc[d];
+
+                        // Determinar si es un vecino válido y no ha sido marcado 
+                        if (PosicionValida (laberinto.GetLength(0)-1,laberinto.GetLength(1)-1, vf, vc) && distancia [vf, vc] == 0 && laberinto [vf, vc].Esaccesible) {  
+
+                            // Actualizar esta celda 
+                            distancia [vf, vc]=distancia [i, j] + 1;
+                            huboCambio = true;
+
+
+                            break;
+
+                        }
+                    } 
+                }
+            }
+        }while (huboCambio);
+
+    return distancia;
+    }
+
+    private void QuitarCeldasInaccesibles(int [,] accesibles){
+
+        for (int i = 0; i < laberinto.GetLength(0); i++)
+        {
+            for (int j = 0; j < laberinto.GetLength(1); j++)
+            {
+                if(laberinto[i,j].Valor==accesibles[i,j]) laberinto[i,j].Valor=1;
+            }
+        }
+    }
+
+
+    private bool PosicionValida(int filas, int columnas, int x, int y)
+    {
+        // Verificar si las coordenadas están dentro de los límites del laberinto
+        if (x < 0 || x >= filas || y < 0 || y >= columnas)
+        {
+            return false; // Fuera de los límites
+        }
+
+        // Verificar si la celda es accesible
+        return laberinto[x, y].Esaccesible; // Devuelve true si es accesible, false si no lo es
+    }
 }
