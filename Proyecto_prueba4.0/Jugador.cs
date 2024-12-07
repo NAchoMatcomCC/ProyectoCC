@@ -1,48 +1,60 @@
 namespace Mazerunners;
 public class Jugador
 {
-    public int PosX { get; set; }
-    public int PosY { get; set; }
+    private Laberinto laberinto;
+    private Random rand = new Random();
+    public int PosX;
+    public int PosY;
+    public int x, y;
+    public int Vida { get; set; } = 10; // Vida inicial del jugadorpublic int Vida { get; private set; } = 10; // Vida inicial del jugador
+    //public int NoMoversePorTurnos { get; set; } // Contador de turnos sin poder moverse
+    public int NoMoversePorTurnos1;
+    public Jugador(Laberinto laberinto){
 
-    public Jugador(int inicioX, int inicioY)
-    {
-        PosX = inicioX;
-        PosY = inicioY;
+        this.laberinto=laberinto;
+        ObtenerPosicionInicialJ1();
+        PosX=x;
+        PosY=y;
+        NoMoversePorTurnos1=0;
     }
 
-    public void Mover(string direccion, Laberinto laberinto)
+    private void ObtenerPosicionInicialJ1()
     {
-        int nuevoX = PosX;
-        int nuevoY = PosY;
+        do
+        {
+            x = rand.Next(1, laberinto.Dimensiones - 1);
+            y = rand.Next(1, laberinto.Dimensiones - 1);
+        } while (laberinto.GetCelda(x, y).Valor != 5); // Asegurarse de que no sea un muro
 
-        switch (direccion.ToLower())
-        {
-            case "w": // Arriba
-                nuevoX--;
-                break;
-            case "s": // Abajo
-                nuevoX++;
-                break;
-            case "a": // Izquierda
-                nuevoY--;
-                break;
-            case "d": // Derecha
-                nuevoY++;
-                break;
-            default:
-                Console.WriteLine("Comando no válido.");
-                return;
-        }
+        
+    }
 
-        // Verificar si el movimiento es válido
-        if (laberinto.GetCelda(nuevoX, nuevoY).Valor  !=1) // Si la celda no es un muro
+    public void ReducirVida(int cantidad)
+    {
+        Vida -= cantidad;
+        if (Vida < 0) Vida = 0; // Asegurarse de que la vida no sea negativa
+    }
+
+    public void ActualizarEstado()
+    {
+        // Este método se puede llamar al final de cada turno para decrementar el contador
+        if (NoMoversePorTurnos1 > 0)
         {
-            PosX = nuevoX;
-            PosY = nuevoY;
-        }
-        else
-        {
-            Console.WriteLine("Movimiento no válido. Hay un muro.");
+            NoMoversePorTurnos1--;
         }
     }
+
+    public void NoMoversePorTurnos(int turnos)
+    {
+        // Establecer el contador de turnos sin poder moverse
+        NoMoversePorTurnos1 = turnos;
+        Console.WriteLine($"¡No puedes moverte por {turnos} turnos!");
+    }
+
+    public bool PuedeMoverse()
+    {
+        // Verificar si el jugador puede moverse
+        return NoMoversePorTurnos1 == 0;
+    }
+    
 }

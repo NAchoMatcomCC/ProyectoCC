@@ -6,13 +6,14 @@ public class Laberinto
     private int dimensiones;
     private Celda[,] laberinto;
 
-    public Laberinto(float densidad = 0.5f, int dimensiones = 15)
+    public Laberinto(float densidad = 0.5f, int dimensiones = 31)
     {
         this.densidad = densidad;
         this.dimensiones = dimensiones;
         laberinto = new Celda[dimensiones, dimensiones];
+        GenerarLaberinto();
 
-        GenerarLaberinto(); 
+        
     }
 
     public int Dimensiones 
@@ -78,6 +79,7 @@ public class Laberinto
         QuitarCeldasInaccesibles(accesibles);
         GenerarTrampas();
         SeleccionarCeldas();
+        PonerEsferasDelDragon();
     }
 
     public Celda GetCelda(int x, int y)
@@ -108,7 +110,7 @@ public class Laberinto
        for (int i = 0; i < trampasAAgregar; i++)
         {
             int x, y;
-           bool trampaColocada = false;
+            bool trampaColocada = false;
 
             while (!trampaColocada)
             {
@@ -188,7 +190,38 @@ public class Laberinto
         }
     }
 
-// Método para verificar si dos celdas son adyacentes
+    private void PonerEsferasDelDragon(){
+
+
+        Random rand = new Random();
+
+        bool esferacolocada;
+        
+
+        for (int i = 1; i <= 7; i++)
+        {
+            int x, y;
+            esferacolocada=false;
+        
+            while (!esferacolocada)
+            {
+            x = rand.Next(1, dimensiones - 1);
+            y = rand.Next(1, dimensiones - 1);
+
+                if (laberinto[x, y].Valor == 0) // Verificar si la celda está vacía
+                {
+                    laberinto[x,y].EsEsferaDelDragon=true;
+                    esferacolocada=true;
+                }
+            }
+        }
+
+
+
+
+    }
+
+    // Método para verificar si dos celdas son adyacentes
     private bool SonAdyacentes((int, int) celda1, (int, int) celda2)
     {
         return (Math.Abs(celda1.Item1 - celda2.Item1) == 1 && celda1.Item2 == celda2.Item2) ||
@@ -202,8 +235,8 @@ public class Laberinto
 
         distancia[1,1]=1;
 
-        int[] df={-1,1,0,0,-1,1,-1,1};
-        int[] dc={0,0,1,-1,-1,-1,1,1};
+        int[] df={-1,1,0,0};
+        int[] dc={0,0,1,-1};
 
         bool huboCambio;
 

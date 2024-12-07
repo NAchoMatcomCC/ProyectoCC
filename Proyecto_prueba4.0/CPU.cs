@@ -18,7 +18,7 @@ public class CPU
         {
             x = rand.Next(1, laberinto.Dimensiones - 1);
             y = rand.Next(1, laberinto.Dimensiones - 1);
-        } while (laberinto.GetCelda(x, y).Valor == 1); // Asegurarse de que no sea un muro
+        } while (laberinto.GetCelda(x, y).Valor != 6); // Asegurarse de que no sea un muro
 
         return (x, y);
     }

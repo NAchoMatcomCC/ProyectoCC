@@ -3,11 +3,9 @@ public class Celda
 {
     public int Valor { get; set; } // 0 = espacio, 1 = muro
     public bool EsTrampa { get; set; }
-
     public bool Esaccesible { get; set; }
-
-
     public bool EsPosicionClave { get; set; }
+    public bool EsEsferaDelDragon { get; set; }
 
     public Celda()
     {
@@ -15,5 +13,6 @@ public class Celda
         EsTrampa = false;
         EsPosicionClave = false;
         Esaccesible=true;
+        EsEsferaDelDragon=false;
     }
 }
