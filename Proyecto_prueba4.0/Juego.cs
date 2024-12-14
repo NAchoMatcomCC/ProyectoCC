@@ -2,55 +2,75 @@ namespace Mazerunners;
 public class Juego
 {
     private Laberinto laberinto;
-    private Jugador jugador;
-    private CPU ia;
+    private List<Jugador> jugadores; // Lista para almacenar múltiples jugadores
+    //private CPU ia;
 
     private int posicioninix;
     private int posicioniniy;
-    public Juego()
+    public Juego(int numero_de_jugadores)
     {
         laberinto = new Laberinto();
-        jugador = new Jugador(laberinto); // Posición inicial del jugador
-        ia = new CPU(laberinto); // La IA se inicializa con el laberinto
-        posicioninix=jugador.PosX;
-        posicioniniy=jugador.PosY;
+        jugadores = new List<Jugador>(); // Posición inicial del jugador
+        for (int i = 0; i < numero_de_jugadores; i++)
+            {
+                jugadores.Add(new Jugador(laberinto, i + 1)); // Posición inicial del jugador
+                posicioninix=jugadores[i].PosX;
+                posicioniniy=jugadores[i].PosY;
+            }
+        //ia = new CPU(laberinto); // La IA se inicializa con el laberinto
+        
     }
 
     public void Iniciar()
     {
-        while (true)
-        {
-            if (jugador.Vida==0){
-                jugador.PosX=posicioninix;
-                jugador.PosY=posicioniniy;
-                jugador.Vida=10;
+        
+            
+
+            while (true)
+            {
+                foreach (var jugador in jugadores)
+                {
+                    if (jugador.Vida == 0)
+                    {
+                        jugador.PosX=posicioninix;
+                        jugador.PosY=posicioniniy;
+                        jugador.Vida=10;
+                    }
+
+                    MostrarEstado();
+                    Console.WriteLine("Ingrese su movimiento (w/a/s/d) para el jugador en la posición ({0}, {1}): ", jugador.PosX, jugador.PosY);
+                    string movimiento = Console.ReadLine();
+                    if (movimiento == "q") return; // Salir del juego
+                    Mover(jugador, movimiento);
+
+                    jugador.ActualizarEstado();
+
+                    // Comprobar si el jugador ha llegado a una celda de trampa o si hay algún otro objetivo
+                    if (laberinto.GetCelda(jugador.PosX, jugador.PosY).Valor == 7)
+                    {
+                        Console.WriteLine("¡El jugador ha llegado a la salida! Fin del juego.");
+                        return; // Terminar el juego
+                    }
+                }
+
+
+
+                //ia.Mover();
+
             }
-            MostrarEstado();
-            Console.WriteLine("Ingrese su movimiento (w/a/s/d): ");
-            string movimiento = Console.ReadLine();
-            if(movimiento =="q") break;
-            Mover(movimiento);
-
-            jugador.ActualizarEstado();
-
-           
 
             // Aquí la IA se mueve después del jugador
-            ia.Mover();
+            
 
             // Comprobar si el jugador ha llegado a una celda de trampa o si hay algún otro objetivo
-            if (laberinto.GetCelda(jugador.PosX, jugador.PosY).Valor==7)
-            {
-                Console.WriteLine("¡Has llegado a la salida fin del juego !");
-                break;
-            }
+           
 
             // Aquí podrías agregar lógica para comprobar si la IA ha alcanzado al jugador
             // o cualquier otra condición de finalización del juego.
         }
-    }
+    
 
-    public void Mover(string movimiento)
+    public void Mover(Jugador jugador,string movimiento)
     {
         if (!jugador.PuedeMoverse())
         {
@@ -191,45 +211,63 @@ public class Juego
     {
         Console.Clear();
 
-        Console.WriteLine($"Vida del Jugador:{jugador.Vida}");
-        Console.WriteLine($"No puede moverser en {jugador.NoMoversePorTurnos1}");
+        foreach (var jugador in jugadores)
+        {
+            Console.WriteLine($"Vida del Jugador en ({jugador.PosX}, {jugador.PosY}): {jugador.Vida}");
+            Console.WriteLine($"No puede moverse en {jugador.NoMoversePorTurnos1}");
+        }
 
         for (int i = 0; i < laberinto.Dimensiones; i++)
         {
             for (int j = 0; j < laberinto.Dimensiones; j++)
             {
-                if (i == jugador.PosX && j == jugador.PosY)
-                {
-                    Console.Write("P "); // Mostrar al jugador
+                bool jugadorEncontrado = false;
+                foreach (var jugador in jugadores)
+                {  
+                    
+                    if (i == jugador.PosX && j == jugador.PosY)
+                    {
+                        if (jugadores[0].PosX == i && jugadores[0].PosY == j)
+                        { 
+                            Console.Write("P "); // Mostrar al jugador
+                        }
+                        else{
+                            Console.Write("Q ");
+                        }
+                        jugadorEncontrado = true;
+                        break;
+                    }
                 }
-                else if (i == ia.ObtenerPosicion().Item1 && j == ia.ObtenerPosicion().Item2)
-                {
-                    Console.Write("R "); // Mostrar la IA
-                }
-                else if (laberinto.GetCelda(i, j).Valor == 1)
-                {
-                    Console.Write("██"); // Mostrar muro
-                }
-                 else if (laberinto.GetCelda(i, j).EsPosicionClave)
-                {
-                    if(laberinto.GetCelda(i, j).Valor==5)  Console.Write("🔵"); // Celda de inicio1
-                    else if(laberinto.GetCelda(i, j).Valor==6)  Console.Write("🟢"); // Celda de inicio2    
-                    else  Console.Write("🏆"); // Celda de salida        
+                if (!jugadorEncontrado){ 
+                //else if (i == ia.ObtenerPosicion().Item1 && j == ia.ObtenerPosicion().Item2)
+                //{
+                //    Console.Write("R "); // Mostrar la IA
+                //}
+                    if (laberinto.GetCelda(i, j).Valor == 1)
+                    {
+                        Console.Write("██"); // Mostrar muro
+                    }
+                    else if (laberinto.GetCelda(i, j).EsPosicionClave)
+                    {
+                        if(laberinto.GetCelda(i, j).Valor==5)  Console.Write("🔵"); // Celda de inicio1
+                        else if(laberinto.GetCelda(i, j).Valor==6)  Console.Write("🟢"); // Celda de inicio2    
+                        else  Console.Write("🏆"); // Celda de salida        
 
-                }
-                else if (laberinto.GetCelda(i, j).EsTrampa){
+                    }
+                    else if (laberinto.GetCelda(i, j).EsTrampa){
 
-                    if (laberinto.GetCelda(i, j).Valor==2)Console.Write("⚠️ ");
-                    else if (laberinto.GetCelda(i, j).Valor==3)Console.Write("🧨");
-                    else Console.Write("🐍");
-                }
-                else if(laberinto.GetCelda(i,j).EsEsferaDelDragon)
-                {
-                    Console.Write("🟠");
-                }
-                else
-                {
-                    Console.Write("  "); // Espacio vacío
+                        if (laberinto.GetCelda(i, j).Valor==2)Console.Write("⚠️ ");
+                        else if (laberinto.GetCelda(i, j).Valor==3)Console.Write("🧨");
+                        else Console.Write("🐍");
+                    }
+                    else if(laberinto.GetCelda(i,j).EsEsferaDelDragon)
+                    {
+                        Console.Write("🟠");
+                    }
+                    else
+                    {
+                        Console.Write("  "); // Espacio vacío
+                    }
                 }
             }
             Console.WriteLine();

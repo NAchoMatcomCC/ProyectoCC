@@ -7,24 +7,28 @@ public class Jugador
     public int PosY;
     public int x, y;
     public int Vida { get; set; } = 10; // Vida inicial del jugadorpublic int Vida { get; private set; } = 10; // Vida inicial del jugador
+    
+
     //public int NoMoversePorTurnos { get; set; } // Contador de turnos sin poder moverse
     public int NoMoversePorTurnos1;
-    public Jugador(Laberinto laberinto){
+    public Jugador(Laberinto laberinto, int jugadorNumero){
 
         this.laberinto=laberinto;
-        ObtenerPosicionInicialJ1();
+        ObtenerPosicionInicialJ1(jugadorNumero);
         PosX=x;
         PosY=y;
+        
+        
         NoMoversePorTurnos1=0;
     }
 
-    private void ObtenerPosicionInicialJ1()
+    private void ObtenerPosicionInicialJ1(int jugadorNumero)
     {
         do
         {
             x = rand.Next(1, laberinto.Dimensiones - 1);
             y = rand.Next(1, laberinto.Dimensiones - 1);
-        } while (laberinto.GetCelda(x, y).Valor != 5); // Asegurarse de que no sea un muro
+        } while (laberinto.GetCelda(x, y).Valor != (jugadorNumero == 1 ? 5 : 6)); // Asegurarse de que no sea un muro
 
         
     }
