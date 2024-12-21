@@ -4,10 +4,11 @@ public class Personaje
 {
 
     PersonajeElegir personaje;
-    int tiempo_de_enfriamiento;
-    int velocidad;
-    int fuerza_de_ataque=1;
+    public int tiempo_de_enfriamiento;
+    public int velocidad;
+    public int fuerza_de_ataque;
     public int vida;
+    
 
     enum PersonajeElegir{
 
@@ -30,6 +31,7 @@ public class Personaje
 
         personaje=ElegirPersonaje(n);
         tiempo_de_enfriamiento=0;
+        fuerza_de_ataque=1;
         velocidad=1;
         vida=10;
 
@@ -64,6 +66,7 @@ public class Personaje
 
             case PersonajeElegir.Jiren:
                 PoderAbsoluto(jugador1);
+                fuerza_de_ataque+=1;
                 tiempo_de_enfriamiento=100;
                 break;
 
@@ -85,8 +88,8 @@ public class Personaje
 
             case PersonajeElegir.Trunks:
                 Habilidad_Ataque(jugador2,2);
-                EspadaDelFuturo(jugador2);
-                tiempo_de_enfriamiento=24;
+                velocidad+=1;
+                tiempo_de_enfriamiento=50;;
                 break;
 
             case PersonajeElegir.Cell:
@@ -100,19 +103,15 @@ public class Personaje
         }
     }
 
+   
+
     private void Paralizar(Jugador jugador, int cant_turnos)
     {
         // El jugador no puede moverse en su próximo turno
         jugador.NoMoversePorTurnos(cant_turnos);
         Console.WriteLine("¡Freezer ha paralizado al otro jugador!");
     }
-    private void Taioken(Jugador jugador)
-    {
-        // Invertir controles del oponente
-        jugador.NoMoversePorTurnos(1);
-        Console.WriteLine("¡Krilin ha usado Taioken! Los controles de " + jugador + " están invertidos por un turno.");
-    }
-
+    
     private void PoderAbsoluto(Jugador jugador)
     {
         jugador.Vida=30;
@@ -132,15 +131,6 @@ public class Personaje
         if (jugador.Vida>10) jugador.Vida=10;
         Console.WriteLine("¡Piccolo ha usado Regeneración y ha restaurado 3 de vida!");
     }
-
-    private void EspadaDelFuturo(Jugador jugador)
-    {
-        if (jugador.Vida >= 2) jugador.ReducirVida(2);
-        else jugador.Vida = 0;
-        Console.WriteLine("¡Trunks ha usado Espada del Futuro y le ha quitado 2 de vida a " + jugador + "!");
-    }
-
-
 
     PersonajeElegir ElegirPersonaje(int n){
 

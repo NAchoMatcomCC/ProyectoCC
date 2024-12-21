@@ -27,10 +27,12 @@ public class Juego
         
             
 
-            while (true)
+        while (true)
+        {
+            for (int i=0;i<jugadores.Count;i++)
             {
-                for (int i=0;i<jugadores.Count;i++)
-                {
+                for(int j=0;j<jugadores[i].Personaje.velocidad;j++)
+                { 
                     if (jugadores[i].Vida == 0)
                     {
                         jugadores[i].PosX=posicioninix;
@@ -44,7 +46,7 @@ public class Juego
                     string movimiento = Console.ReadLine();
                     if (movimiento == "q") return; // Salir del juego
                     
-                    Mover(jugadores[i], movimiento, i);
+                    Mover(jugadores[i], movimiento, i); //El n'umero del jugador es
 
 
 
@@ -60,11 +62,18 @@ public class Juego
                     
                 }
 
+                for (int k = 0; i < jugadores.Count; k++)
+                {
+                    // Actualizar turnos sin atacar y tiempo de enfriamiento
+                    jugadores[k].turnos_sin_atacar = Math.Max(0, jugadores[k].turnos_sin_atacar - 1);
+                    jugadores[k].Personaje.tiempo_de_enfriamiento = Math.Max(0, jugadores[k].Personaje.tiempo_de_enfriamiento - 1);
+                }
 
 
                 //ia.Mover();
 
             }
+        }
 
             // Aquí la IA se mueve después del jugador
             
@@ -84,10 +93,19 @@ public class Juego
             Console.WriteLine("No puedes moverte en este turno.");
             return; // No permitir el movimiento
         }
-        if (movimiento=="e")
+
+        movimiento.ToLower();
+
+        if (movimiento=="o")
         {
-            if (n==0) jugador.Personaje.Poder(jugadores[0], jugadores[1]);
-            else jugador.Personaje.Poder(jugadores[1], jugadores[0]);
+            if (n==0 && jugador.Personaje.tiempo_de_enfriamiento==0) jugador.Personaje.Poder(jugadores[0], jugadores[1]);
+            else if(n==1 && jugador.Personaje.tiempo_de_enfriamiento==0)jugador.Personaje.Poder(jugadores[1], jugadores[0]);
+            movimiento=Console.ReadLine();
+        }
+        if (movimiento=="p")
+        {
+            if (n==0 && jugador.turnos_sin_atacar==0) jugador.Atacar(jugadores[1]);
+            else if(n==1 && jugador.turnos_sin_atacar==0)jugador.Atacar(jugadores[0]);
             movimiento=Console.ReadLine();
         }
 

@@ -6,8 +6,9 @@ public class Jugador
     public int PosX;
     public int PosY;
     public int x, y;
-    public int Vida { get; set; }  // Vida inicial del jugadorpublic int Vida { get; private set; } = 10; // Vida inicial del jugador
+    public int Vida;  // Vida inicial del jugadorpublic int Vida { get; private set; } = 10; // Vida inicial del jugador
     public Personaje Personaje { get; private set; }
+    public int turnos_sin_atacar;
 
     //public int NoMoversePorTurnos { get; set; } // Contador de turnos sin poder moverse
     public int NoMoversePorTurnos1;
@@ -19,6 +20,7 @@ public class Jugador
         ObtenerPosicionInicialJ1(jugadorNumero);
         PosX=x;
         PosY=y;
+        turnos_sin_atacar=0;
         
         
         NoMoversePorTurnos1=0;
@@ -35,6 +37,21 @@ public class Jugador
         
     }
 
+     public void Atacar(Jugador jugador2){
+
+        if (Posicion_cercana(jugador2)){
+            jugador2.ReducirVida(2*Personaje.fuerza_de_ataque);
+            turnos_sin_atacar=5;
+        } 
+
+    }
+
+     public bool Posicion_cercana(Jugador otroJugador)
+    {
+        // Verificar si el otro jugador está en una posición adyacente
+        return (Math.Abs(PosX - otroJugador.PosX) == 1 && PosY == otroJugador.PosY) || // Arriba o Abajo
+               (Math.Abs(PosY - otroJugador.PosY) == 1 && PosX == otroJugador.PosX); // Izquierda o Derecha
+    }
     public void ReducirVida(int cantidad)
     {
         Vida -= cantidad;
@@ -62,5 +79,7 @@ public class Jugador
         // Verificar si el jugador puede moverse
         return NoMoversePorTurnos1 == 0;
     }
+
+    
     
 }
