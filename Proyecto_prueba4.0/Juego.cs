@@ -4,16 +4,17 @@ public class Juego
     private Laberinto laberinto;
     private List<Jugador> jugadores; // Lista para almacenar múltiples jugadores
     //private CPU ia;
-
+    private int[] numeros_de_personajes;
     private int posicioninix;
     private int posicioniniy;
-    public Juego(int numero_de_jugadores)
+    public Juego(int numero_de_jugadores, int[] n)
     {
         laberinto = new Laberinto();
         jugadores = new List<Jugador>(); // Posición inicial del jugador
         for (int i = 0; i < numero_de_jugadores; i++)
             {
-                jugadores.Add(new Jugador(laberinto, i + 1)); // Posición inicial del jugador
+                Personaje personaje=new Personaje(n[i]);
+                jugadores.Add(new Jugador(laberinto, i + 1,personaje)); // Posición inicial del jugador
                 posicioninix=jugadores[i].PosX;
                 posicioniniy=jugadores[i].PosY;
             }
@@ -28,29 +29,35 @@ public class Juego
 
             while (true)
             {
-                foreach (var jugador in jugadores)
+                for (int i=0;i<jugadores.Count;i++)
                 {
-                    if (jugador.Vida == 0)
+                    if (jugadores[i].Vida == 0)
                     {
-                        jugador.PosX=posicioninix;
-                        jugador.PosY=posicioniniy;
-                        jugador.Vida=10;
+                        jugadores[i].PosX=posicioninix;
+                        jugadores[i].PosY=posicioniniy;
+                        jugadores[i].Vida=10;
+                        continue;
                     }
 
                     MostrarEstado();
-                    Console.WriteLine("Ingrese su movimiento (w/a/s/d) para el jugador en la posición ({0}, {1}): ", jugador.PosX, jugador.PosY);
+                    Console.WriteLine("Ingrese su movimiento (w/a/s/d) para el jugador en la posición ({0}, {1}): ", jugadores[i].PosX, jugadores[i].PosY);
                     string movimiento = Console.ReadLine();
                     if (movimiento == "q") return; // Salir del juego
-                    Mover(jugador, movimiento);
+                    
+                    Mover(jugadores[i], movimiento, i);
 
-                    jugador.ActualizarEstado();
+
+
+                    jugadores[i].ActualizarEstado();
 
                     // Comprobar si el jugador ha llegado a una celda de trampa o si hay algún otro objetivo
-                    if (laberinto.GetCelda(jugador.PosX, jugador.PosY).Valor == 7)
+                    if (laberinto.GetCelda(jugadores[i].PosX, jugadores[i].PosY).Valor == 7)
                     {
                         Console.WriteLine("¡El jugador ha llegado a la salida! Fin del juego.");
                         return; // Terminar el juego
                     }
+
+                    
                 }
 
 
@@ -70,12 +77,18 @@ public class Juego
         }
     
 
-    public void Mover(Jugador jugador,string movimiento)
+    public void Mover(Jugador jugador,string movimiento, int n)
     {
         if (!jugador.PuedeMoverse())
         {
             Console.WriteLine("No puedes moverte en este turno.");
             return; // No permitir el movimiento
+        }
+        if (movimiento=="e")
+        {
+            if (n==0) jugador.Personaje.Poder(jugadores[0], jugadores[1]);
+            else jugador.Personaje.Poder(jugadores[1], jugadores[0]);
+            movimiento=Console.ReadLine();
         }
 
         int nuevoX = jugador.PosX;

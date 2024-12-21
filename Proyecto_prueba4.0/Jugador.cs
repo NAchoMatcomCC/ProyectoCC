@@ -6,14 +6,16 @@ public class Jugador
     public int PosX;
     public int PosY;
     public int x, y;
-    public int Vida { get; set; } = 10; // Vida inicial del jugadorpublic int Vida { get; private set; } = 10; // Vida inicial del jugador
-    
+    public int Vida { get; set; }  // Vida inicial del jugadorpublic int Vida { get; private set; } = 10; // Vida inicial del jugador
+    public Personaje Personaje { get; private set; }
 
     //public int NoMoversePorTurnos { get; set; } // Contador de turnos sin poder moverse
     public int NoMoversePorTurnos1;
-    public Jugador(Laberinto laberinto, int jugadorNumero){
+    public Jugador(Laberinto laberinto, int jugadorNumero,Personaje personaje){
 
         this.laberinto=laberinto;
+        this.Personaje=personaje;
+        Vida=personaje.vida;
         ObtenerPosicionInicialJ1(jugadorNumero);
         PosX=x;
         PosY=y;
@@ -51,7 +53,7 @@ public class Jugador
     public void NoMoversePorTurnos(int turnos)
     {
         // Establecer el contador de turnos sin poder moverse
-        NoMoversePorTurnos1 = turnos;
+        NoMoversePorTurnos1 += turnos;
         Console.WriteLine($"¡No puedes moverte por {turnos} turnos!");
     }
 
