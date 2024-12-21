@@ -43,18 +43,18 @@ public class Personaje
         switch (personaje)
         {
             case PersonajeElegir.Goku:
-                Habilidad_Ataque(jugador2, 4);
+                Habilidad_Ataque(jugador1, jugador2, 4);
                 tiempo_de_enfriamiento=20;
                 break;
 
             case PersonajeElegir.Freezer:
                 Paralizar(jugador2,2);
-                if(jugador2.Vida>2) Habilidad_Ataque(jugador2,2);
+                if(jugador2.Vida>2) Habilidad_Ataque(jugador1, jugador2,2);
                 tiempo_de_enfriamiento=22;
                 break;
 
             case PersonajeElegir.Vegeta:
-                Habilidad_Ataque(jugador2, 3);
+                Habilidad_Ataque(jugador1, jugador2, 3);
                 Paralizar(jugador2,1);
                 tiempo_de_enfriamiento=18;
                 break;
@@ -71,13 +71,13 @@ public class Personaje
                 break;
 
             case PersonajeElegir.Gohan:
-                Habilidad_Ataque(jugador2, 4);
+                Habilidad_Ataque(jugador1, jugador2, 4);
                 tiempo_de_enfriamiento=20;
                 break;
 
             case PersonajeElegir.Androide18:
-                Habilidad_Ataque(jugador1,2);
-                Habilidad_Ataque(jugador2,5);
+                Habilidad_Ataque(jugador1, jugador1,2);
+                Habilidad_Ataque(jugador1, jugador2,5);
                 tiempo_de_enfriamiento=18;
                 break;
 
@@ -87,13 +87,13 @@ public class Personaje
                 break;
 
             case PersonajeElegir.Trunks:
-                Habilidad_Ataque(jugador2,2);
+                Habilidad_Ataque(jugador1, jugador2,2);
                 velocidad+=1;
                 tiempo_de_enfriamiento=50;;
                 break;
 
             case PersonajeElegir.Cell:
-                Habilidad_Ataque(jugador2,2);
+                Habilidad_Ataque(jugador1, jugador2,2);
                 Regeneracion(jugador1, 2);
                 tiempo_de_enfriamiento=22;
                 break;
@@ -118,10 +118,20 @@ public class Personaje
         Console.WriteLine("¡Jiren ha activado Poder Absoluto! Reduciendo el daño recibido en el siguiente turno.");
     }
 
-    private void Habilidad_Ataque(Jugador jugador2, int n)
+    public void Habilidad_Ataque(Jugador jugador1, Jugador jugador2, int n)
     {
         if (jugador2.Vida > n) jugador2.ReducirVida(n);
-        else jugador2.Vida = 0;
+        else
+        {  
+            jugador2.Vida = 0;
+            jugador2.fue_asesinado=true;
+
+            if(jugador2.cant_esferas_dragon>0){ 
+                jugador2.cant_esferas_dragon-=1;
+                jugador1.cant_esferas_dragon+=1;
+            }
+            
+        }
         Console.WriteLine("¡Ha lanzado Kamehameha y le ha quitado 4 de vida al otro jugador!");
     }
 

@@ -9,8 +9,10 @@ public class Jugador
     public int Vida;  // Vida inicial del jugadorpublic int Vida { get; private set; } = 10; // Vida inicial del jugador
     public Personaje Personaje { get; private set; }
     public int turnos_sin_atacar;
+    public int cant_esferas_dragon;
 
     //public int NoMoversePorTurnos { get; set; } // Contador de turnos sin poder moverse
+    public bool fue_asesinado=false;
     public int NoMoversePorTurnos1;
     public Jugador(Laberinto laberinto, int jugadorNumero,Personaje personaje){
 
@@ -21,6 +23,7 @@ public class Jugador
         PosX=x;
         PosY=y;
         turnos_sin_atacar=0;
+        cant_esferas_dragon=0;
         
         
         NoMoversePorTurnos1=0;
@@ -40,7 +43,7 @@ public class Jugador
      public void Atacar(Jugador jugador2){
 
         if (Posicion_cercana(jugador2)){
-            jugador2.ReducirVida(2*Personaje.fuerza_de_ataque);
+            Personaje.Habilidad_Ataque(this, jugador2, 2*Personaje.fuerza_de_ataque);
             turnos_sin_atacar=5;
         } 
 

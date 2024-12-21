@@ -7,10 +7,12 @@ public class Juego
     private int[] numeros_de_personajes;
     private int posicioninix;
     private int posicioniniy;
+    private int esferas_por_recoger;
     public Juego(int numero_de_jugadores, int[] n)
     {
         laberinto = new Laberinto();
         jugadores = new List<Jugador>(); // Posición inicial del jugador
+        esferas_por_recoger=7;
         for (int i = 0; i < numero_de_jugadores; i++)
             {
                 Personaje personaje=new Personaje(n[i]);
@@ -35,10 +37,18 @@ public class Juego
                 { 
                     if (jugadores[i].Vida == 0)
                     {
+                        if(jugadores[i].cant_esferas_dragon>0 && !jugadores[i].fue_asesinado)
+                        {
+
+                            jugadores[i].cant_esferas_dragon-=1;
+                            esferas_por_recoger+=1;
+                            laberinto.Poner1EsferasDelDragon();
+
+                        }
                         jugadores[i].PosX=posicioninix;
                         jugadores[i].PosY=posicioniniy;
                         jugadores[i].Vida=10;
-                        continue;
+                        
                     }
 
                     MostrarEstado();
@@ -55,14 +65,24 @@ public class Juego
                     // Comprobar si el jugador ha llegado a una celda de trampa o si hay algún otro objetivo
                     if (laberinto.GetCelda(jugadores[i].PosX, jugadores[i].PosY).Valor == 7)
                     {
-                        Console.WriteLine("¡El jugador ha llegado a la salida! Fin del juego.");
-                        return; // Terminar el juego
+                        if (esferas_por_recoger==0 && jugadores[i].cant_esferas_dragon>=4)
+                        { 
+                            Console.WriteLine("¡El jugador ha llegado a la salida! Fin del juego.");
+                            return; // Terminar el juego
+                        }
+                        else
+                        {
+                            jugadores[i].PosX=posicioninix;
+                            jugadores[i].PosY=posicioniniy;
+                        }
                     }
+
+                    jugadores[i].fue_asesinado=false;
 
                     
                 }
 
-                for (int k = 0; i < jugadores.Count; k++)
+                for (int k = 0; k < jugadores.Count; k++)
                 {
                     // Actualizar turnos sin atacar y tiempo de enfriamiento
                     jugadores[k].turnos_sin_atacar = Math.Max(0, jugadores[k].turnos_sin_atacar - 1);
@@ -104,8 +124,8 @@ public class Juego
         }
         if (movimiento=="p")
         {
-            if (n==0 && jugador.turnos_sin_atacar==0) jugador.Atacar(jugadores[1]);
-            else if(n==1 && jugador.turnos_sin_atacar==0)jugador.Atacar(jugadores[0]);
+            if (n==0 && jugador.turnos_sin_atacar==0) jugadores[0].Atacar(jugadores[1]);
+            else if(n==1 && jugador.turnos_sin_atacar==0)jugadores[1].Atacar(jugadores[0]);
             movimiento=Console.ReadLine();
         }
 
@@ -146,6 +166,13 @@ public class Juego
                 // Convertir la celda de trampa a normal
                 laberinto.GetCelda(nuevoX, nuevoY).Valor = 0; // Cambiar a celda normal
                 laberinto.GetCelda(nuevoX, nuevoY).EsTrampa = false; // Ya no es trampa
+            }
+            else if(laberinto.GetCelda(nuevoX, nuevoY).EsEsferaDelDragon){
+                
+                jugador.PosX = nuevoX;
+                jugador.PosY = nuevoY;
+                laberinto.GetCelda(nuevoX, nuevoY).EsEsferaDelDragon = false;
+                esferas_por_recoger-=1;
             }
             else
             {

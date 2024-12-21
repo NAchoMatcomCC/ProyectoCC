@@ -221,6 +221,36 @@ public class Laberinto
 
     }
 
+    public void Poner1EsferasDelDragon(){
+
+
+        Random rand = new Random();
+
+        bool esferacolocada;
+        
+
+        
+        int x, y;
+        esferacolocada=false;
+        
+        while (!esferacolocada)
+        {
+            x = rand.Next(1, dimensiones - 1);
+            y = rand.Next(1, dimensiones - 1);
+
+            if (laberinto[x, y].Valor == 0) // Verificar si la celda está vacía
+            {
+                laberinto[x,y].EsEsferaDelDragon=true;
+                esferacolocada=true;
+            }
+        }
+        
+
+
+
+
+    }
+
     // Método para verificar si dos celdas son adyacentes
     private bool SonAdyacentes((int, int) celda1, (int, int) celda2)
     {
