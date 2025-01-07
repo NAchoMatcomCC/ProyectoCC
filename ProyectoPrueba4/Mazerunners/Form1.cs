@@ -5,7 +5,7 @@ namespace Mazerunners
     public partial class Form1 : Form
     {
         private Juego juego;
-        
+
         private Graphics g;
         private Keys movimiento;
         private int turno_del_jugador;
@@ -16,70 +16,85 @@ namespace Mazerunners
         {
             InitializeComponent();
 
-            laberinto=new Laberinto();
-            jugadores=new List<Jugador>();
+            laberinto = new Laberinto();
+            jugadores = new List<Jugador>();
 
 
 
-            int[] n = { 1, 1 };
+            int[] n = { 1, 7 };
             for (int i = 0; i < 2; i++)
             {
                 Personaje personaje = new Personaje(n[i]);
                 jugadores.Add(new Jugador(laberinto, i + 1, personaje)); // Posición inicial del jugador
-            
+
             }
 
             juego = new Juego(laberinto, jugadores, 2, n);
             //jugador = new Bitmap("Jugador.png");
             g = this.CreateGraphics();
-            turno_del_jugador =0;
+            turno_del_jugador = 0;
 
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-           
+
 
             BufferedGraphicsContext bfc = BufferedGraphicsManager.Current;
             BufferedGraphics bf = bfc.Allocate(g, this.ClientRectangle);
 
-            
+
 
 
 
 
             juego.Graficar(bf.Graphics);
-            bf.Render(g);
-            
 
+            bf.Render(g);
+            //jugadores[0].jugador_accion=false;
+            //jugadores[1].jugador_accion=false;
+
+        }
+
+         private void Form1_KeyUp(object sender, KeyEventArgs e)
+        {
+            //jugadores[turno_del_jugador % 2].jugador_accion = false;
+            jugadores[0].jugador_accion=false;
+            jugadores[1].jugador_accion=false;
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
+            
 
             // Capturar la tecla presionada
             movimiento = e.KeyCode;
+
+            if (jugadores[turno_del_jugador % 2].PuedeMoverse() == false) turno_del_jugador++;
+
+
+
+
+            // Llamar al método Mover con la tecla presionada
+            juego.Mover(movimiento, turno_del_jugador % 2);
+            
+
+            turno_del_jugador++;
+
+            if (juego.juego_terminado)
+            {
+                MessageBox.Show($"El juego ha terminado, ha ganado: {juego.ganador}");
+
+                this.Close();
+            }
 
             for (int i = 0; i < jugadores.Count; i++)
             {
                 jugadores[i].ActualizarEstado(i);
             }
 
-            if(jugadores[turno_del_jugador%2].PuedeMoverse()==false) turno_del_jugador++;
-
-            
-            // Llamar al método Mover con la tecla presionada
-            juego.Mover(movimiento, turno_del_jugador%2);
-
-            turno_del_jugador++;
-
-             if(juego.juego_terminado)
-            {
-                MessageBox.Show($"El juego ha terminado, ha ganado: {juego.ganador}");
-                
-                this.Close();
-            }
-    
         }
+
+       
     }
 }

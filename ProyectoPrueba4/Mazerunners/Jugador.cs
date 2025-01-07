@@ -1,4 +1,6 @@
 namespace Mazerunners;
+using System.Drawing;
+using System.Security.Cryptography.Pkcs;
 public class Jugador
 {
     private Laberinto laberinto;
@@ -10,16 +12,21 @@ public class Jugador
     private int ancho;
     private int alto;
 
-    private Bitmap jugador;
+    private Bitmap jugadorimg;
+    public bool jugador_accion;
 
     
     public Personaje Personaje { get; private set; }
     public int turnos_sin_atacar;
     public int cant_esferas_dragon;
+    public direcionmovimiento direccion;
+
+    private int contador;
 
     //public int NoMoversePorTurnos { get; set; } // Contador de turnos sin poder moverse
     public bool fue_asesinado=false;
     public int NoMoversePorTurnos1;
+
     public Jugador(Laberinto laberinto, int jugadorNumero,Personaje personaje){
 
         this.laberinto=laberinto;
@@ -32,9 +39,43 @@ public class Jugador
         cant_esferas_dragon=0;
         ancho = 64;
         alto = 64;
+        direccion= direcionmovimiento.HaciaAbajo;
+        jugador_accion=false;
+        jugadorimg=new Bitmap(DireccionImagen());
         
         
         NoMoversePorTurnos1=0;
+    }
+
+    public enum direcionmovimiento{
+
+
+        HaciaAbajo,
+        HaciaArriba,
+        Derecha,
+        Izquierda,
+        AtacarHaciaAbajo,
+        AtacarHaciaArriba,
+        AtacarDerecha,
+        AtacarIzquierda,
+        Poder,
+
+
+    }
+
+    private string DireccionImagen()
+    {
+        if (Personaje.Nombre_del_Personaje == "Goku") return "img/goku.png";
+        else if (Personaje.Nombre_del_Personaje == "Freezer") return "img/goku.png";
+        else if (Personaje.Nombre_del_Personaje == "Vegeta") return "img/goku.png";
+        else if (Personaje.Nombre_del_Personaje == "Krilin") return "img/goku.png";
+        else if (Personaje.Nombre_del_Personaje == "Jiren") return "img/goku.png";
+        else if (Personaje.Nombre_del_Personaje == "Gohan") return "img/goku.png";
+        else if (Personaje.Nombre_del_Personaje == "Androide 18") return "img/androide.png";
+        else if (Personaje.Nombre_del_Personaje == "Piccolo") return "img/goku.png";
+        else if (Personaje.Nombre_del_Personaje == "Trunks") return "img/goku.png";
+        else if (Personaje.Nombre_del_Personaje == "Cell") return "img/goku.png";
+        else return "Personaje desconocido";
     }
 
     private void ObtenerPosicionInicialJ1(int jugadorNumero)
@@ -59,9 +100,37 @@ public class Jugador
 
      public bool Posicion_cercana(Jugador otroJugador)
     {
+
+        if(PosX - otroJugador.PosX==1 && PosY == otroJugador.PosY)
+        {
+            direccion=direcionmovimiento.AtacarIzquierda;
+
+            return true;
+        }
+        else if(otroJugador.PosX - PosX == 1 && PosY == otroJugador.PosY)
+        {
+            direccion=direcionmovimiento.AtacarDerecha;
+
+            return true;
+        }
+        else if(PosY - otroJugador.PosY == 1 && PosX == otroJugador.PosX)
+        {
+            direccion=direcionmovimiento.AtacarHaciaArriba;
+
+            return true;
+        }
+        else if(otroJugador.PosY - PosY == 1 && PosX == otroJugador.PosX)
+        {
+            direccion=direcionmovimiento.AtacarHaciaAbajo;//parece que hay un error lógico porque ataca abajo en lugar de a la derecha lo mismo ocurre con los demás
+            
+            return true;
+        }
+
         // Verificar si el otro jugador está en una posición adyacente
-        return (Math.Abs(PosX - otroJugador.PosX) == 1 && PosY == otroJugador.PosY) || // Arriba o Abajo
-               (Math.Abs(PosY - otroJugador.PosY) == 1 && PosX == otroJugador.PosX); // Izquierda o Derecha
+        //return (Math.Abs(PosX - otroJugador.PosX) == 1 && PosY == otroJugador.PosY) || // Arriba o Abajo
+        //       (Math.Abs(PosY - otroJugador.PosY) == 1 && PosX == otroJugador.PosX); // Izquierda o Derecha
+
+        return false;
     }
     public void ReducirVida(int cantidad)
     {
@@ -98,6 +167,9 @@ public class Jugador
         {
             NoMoversePorTurnos1--;
         }
+
+        if(turnos_sin_atacar>0) turnos_sin_atacar--;
+        if(Personaje.tiempo_de_enfriamiento>0) Personaje.tiempo_de_enfriamiento--;
     }
 
     public void NoMoversePorTurnos(int turnos)
@@ -113,9 +185,27 @@ public class Jugador
         return NoMoversePorTurnos1 == 0;
     }
 
-    public void Mostrar(Graphics g, Bitmap bmp)
+    public void Mostrar(Graphics g)
     {
-        g.DrawImage(bmp, x*64, y*64, ancho, alto);
+        if (jugador_accion)
+        { 
+            Rectangle corte=new Rectangle(contador*64, (int)direccion*64, alto, ancho);
+            g.DrawImage(jugadorimg, PosX * alto, PosY * ancho, corte, GraphicsUnit.Pixel);
+            contador++;
+            if(contador==3) contador=0;
+        }
+        else
+        {
+
+
+            
+            Rectangle corte=new Rectangle(0, (int)direccion*64, alto, ancho);
+            g.DrawImage(jugadorimg, PosX * alto, PosY * ancho, corte, GraphicsUnit.Pixel);
+
+        }
+
+        
+
     }
 
     public void Mover()

@@ -3,14 +3,14 @@ namespace Mazerunners;
 public class Personaje
 {
 
-    PersonajeElegir personaje;
+    public PersonajeElegir personaje;
     public int tiempo_de_enfriamiento;
     public int velocidad;
     public int fuerza_de_ataque;
     public int vida;
-    
 
-    enum PersonajeElegir{
+
+    public enum PersonajeElegir{
 
         Goku,
         Freezer,
@@ -102,6 +102,8 @@ public class Personaje
                 break;
         }
     }
+
+    
 
     public string Nombre_del_Personaje
     {

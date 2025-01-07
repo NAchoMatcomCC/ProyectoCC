@@ -9,9 +9,6 @@ public class Juego
     private List<Jugador> jugadores; // Lista para almacenar múltiples jugadores
     //private CPU ia;
     private int[] numeros_de_personajes;
-    private int posicioninix;
-    private int posicioniniy;
-
     public bool juego_terminado;
 
     public string ganador;
@@ -131,8 +128,12 @@ public class Juego
 
     public void Mover(Keys movimiento, int n)
     {    
-        if (jugadores[n].PuedeMoverse())
+        if (jugadores[n].PuedeMoverse() && 
+            (movimiento==Keys.W || movimiento==Keys.S || movimiento==Keys.A 
+                || movimiento==Keys.D || (movimiento==Keys.P && jugadores[n].turnos_sin_atacar == 0 ) 
+                || (movimiento==Keys.O && jugadores[n].Personaje.tiempo_de_enfriamiento == 0)))
         {
+            jugadores[n].jugador_accion=true;
             int nuevoX = jugadores[n].PosX;
             int nuevoY = jugadores[n].PosY;
 
@@ -140,23 +141,55 @@ public class Juego
             {
                 case Keys.W: // Arriba
                     nuevoY--;
+                    jugadores[n].direccion=Jugador.direcionmovimiento.HaciaArriba;
                    break;
                 case Keys.S: // Abajo
                     nuevoY++;
+                    jugadores[n].direccion=Jugador.direcionmovimiento.HaciaAbajo;
                     break;
                 case Keys.A: // Izquierda
                     nuevoX--;
+                    jugadores[n].direccion=Jugador.direcionmovimiento.Izquierda;
                     break;
                 case Keys.D: // Derecha
                     nuevoX++;
+                    jugadores[n].direccion=Jugador.direcionmovimiento.Derecha;
                     break;
                 case Keys.O: // Poder especial
-                    if (n == 0 && jugadores[n].Personaje.tiempo_de_enfriamiento == 0) jugadores[n].Personaje.Poder(jugadores[0], jugadores[1]);
-                    else if (n == 1 && jugadores[n].Personaje.tiempo_de_enfriamiento == 0) jugadores[n].Personaje.Poder(jugadores[1], jugadores[0]);
+                    if (n == 0 && jugadores[n].Personaje.tiempo_de_enfriamiento == 0) 
+                    {
+                        jugadores[n].direccion=Jugador.direcionmovimiento.Poder;
+                        jugadores[n].Personaje.Poder(jugadores[0], jugadores[1]);
+                    }
+                    else if (n == 1 && jugadores[n].Personaje.tiempo_de_enfriamiento == 0)
+                    {
+                        jugadores[n].direccion=Jugador.direcionmovimiento.Poder;
+                        jugadores[n].Personaje.Poder(jugadores[1], jugadores[0]);
+                    }
                     break;
                 case Keys.P: // Ataque
-                    if (n == 0 && jugadores[n].turnos_sin_atacar == 0) jugadores[0].Atacar(jugadores[1]);
-                    else if (n == 1 && jugadores[n].turnos_sin_atacar == 0) jugadores[1].Atacar(jugadores[0]);
+
+                    /*
+                    if(jugadores[(n+1)%2].direccion==Jugador.dirrecionmovimiento.HaciaAbajo) jugadores[n].direccion=Jugador.dirrecionmovimiento.AtacarHaciaAbajo;
+                    else if(jugadores[(n+1)%2].direccion==Jugador.dirrecionmovimiento.HaciaArriba) jugadores[n].direccion=Jugador.dirrecionmovimiento.AtacarHaciaArriba;
+                    else if(jugadores[(n+1)%2].direccion==Jugador.dirrecionmovimiento.Derecha) jugadores[n].direccion=Jugador.dirrecionmovimiento.AtacarDerecha;
+                    else if(jugadores[(n+1)%2].direccion==Jugador.dirrecionmovimiento.Izquierda) jugadores[n].direccion=Jugador.dirrecionmovimiento.AtacarIzquierda;
+                    */
+
+
+                    
+                    if (n == 0 && jugadores[n].turnos_sin_atacar == 0)
+                    {
+                        
+                        //jugadores[0].direccion=jugadores[0].direccion+4;
+                        jugadores[0].Atacar(jugadores[1]);
+
+                    }
+                    else if (n == 1 && jugadores[n].turnos_sin_atacar == 0)
+                    {
+                        //jugadores[1].direccion=jugadores[1].direccion+4;
+                        jugadores[1].Atacar(jugadores[0]);
+                    }
                     break;
                 default:
                     Console.WriteLine("Comando no válido.");
@@ -211,6 +244,8 @@ public class Juego
              
         }
 
+        //jugadores[n].jugador_accion=false;
+
         
 
         
@@ -255,7 +290,7 @@ public class Juego
         // Buscar trampas de tipo 2 o 3
         for (int i = 1; i < laberinto.Dimensiones - 1; i++)
         {
-            for (int j = 1; j < laberinto.Dimensiones - 1; j++)
+            for (int j = 1; j < laberinto.Dimensiones - 2; j++)
             {
                 if (laberinto.GetCelda(i, j).EsTrampa && (laberinto.GetCelda(i, j).Valor == 2 || laberinto.GetCelda(i, j).Valor == 3))
                 {
@@ -285,8 +320,8 @@ public class Juego
         }
         else
         {
-            jugador.PosX = posicioninix; // Usar la posición inicial almacenada
-            jugador.PosY = posicioniniy; // Usar la posición inicial almacenada
+            jugador.PosX = jugador.x; // Usar la posición inicial almacenada
+            jugador.PosY = jugador.y; // Usar la posición inicial almacenada
             Console.WriteLine("Has sido enviado a la posici'on inicial");
         }
     }
@@ -455,7 +490,8 @@ public class Juego
         }
         foreach (var jugador in jugadores)
         {
-            g.FillEllipse(Brushes.Orange, jugador.PosX * 64, jugador.PosY * 64, 64, 64);
+            //g.FillEllipse(Brushes.Orange, jugador.PosX * 64, jugador.PosY * 64, 64, 64);
+            jugador.Mostrar(g);
         }
 
         // Calcular la posición del texto a la derecha del laberinto
