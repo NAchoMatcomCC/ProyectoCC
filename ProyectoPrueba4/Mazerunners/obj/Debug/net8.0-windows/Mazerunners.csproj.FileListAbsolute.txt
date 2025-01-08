@@ -14,3 +14,5 @@ D:\Universidad\MATCOM\Programación\Proyecto\CopiaSeguridad\ProyectoPrueba4Conwi
 D:\Universidad\MATCOM\Programación\Proyecto\CopiaSeguridad\ProyectoPrueba4Conwindowsform5\Mazerunners\obj\Debug\net8.0-windows\Mazerunners.pdb
 D:\Universidad\MATCOM\Programación\Proyecto\CopiaSeguridad\ProyectoPrueba4Conwindowsform5\Mazerunners\obj\Debug\net8.0-windows\Mazerunners.genruntimeconfig.cache
 D:\Universidad\MATCOM\Programación\Proyecto\CopiaSeguridad\ProyectoPrueba4Conwindowsform5\Mazerunners\obj\Debug\net8.0-windows\ref\Mazerunners.dll
+D:\Universidad\MATCOM\Programación\Proyecto\CopiaSeguridad\ProyectoPrueba4Conwindowsform5\Mazerunners\obj\Debug\net8.0-windows\Mazerunners.FormMenu.resources
+D:\Universidad\MATCOM\Programación\Proyecto\CopiaSeguridad\ProyectoPrueba4Conwindowsform5\Mazerunners\obj\Debug\net8.0-windows\Mazerunners.SeleccionPersonajes.resources

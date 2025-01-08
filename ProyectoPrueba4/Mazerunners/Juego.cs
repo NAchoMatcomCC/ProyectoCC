@@ -397,35 +397,77 @@ public class Juego
         }
     }*/
 
+    public void GraficarPermanente(Graphics g)
+    {
+        int contadorimagen3=0;
+
+        
+
+        for (int i = 0; i < laberinto.Dimensiones; i++)
+        {
+            for (int j = 0; j < laberinto.Dimensiones; j++)
+            {
+                if (laberinto.GetCelda(i,j).Valor != 1)
+                {
+                    img=new Bitmap("img/escenario.png");
+                    g.DrawImage(img, i * alto, j * ancho, alto, ancho);
+                }
+                else
+                {
+                    img=new Bitmap("img/muros.png");
+                    Rectangle corte=new Rectangle(contadorimagen3*64, 0, alto, ancho);
+                    g.DrawImage(img, i * alto, j * ancho, corte, GraphicsUnit.Pixel);
+                    contadorimagen3++;
+                    if(contadorimagen3==9) contadorimagen3=0; 
+                }
+            }
+        }
+
+    }
     public void Graficar(Graphics g)
     {
         int contadorimagen=0;
         int contadorimagen2=0;
+        int contadorimagen3=0;
         Font font = new Font("Arial", 24);
         Brush brush = Brushes.Red;
         string texto = "";
 
-        for (int i = 0; i < jugadores.Count; i++)
+        //g.Clear(Color.White);
+
+        /*for (int i = 0; i < jugadores.Count; i++)
         {
             texto += $"Jugador {i + 1}: {jugadores[i].Personaje.Nombre_del_Personaje} - Vida: {jugadores[i].Vida} - No puede moverse por {jugadores[i].NoMoversePorTurnos1} turnos\n";
-        }
+        }*/
 
-        g.Clear(Color.White);
+        //g.Clear(Color.White);
 
         Brush brocha;
         for (int i = 0; i < laberinto.Dimensiones; i++)
         {
             for (int j = 0; j < laberinto.Dimensiones; j++)
             {
+                if (laberinto.GetCelda(i,j).Valor != 1)
+                {
+                    img=new Bitmap("img/escenario.png");
+                    g.DrawImage(img, i * alto, j * ancho, alto, ancho);
+                }
 
 
-                if (laberinto.GetCelda(i, j).Valor == 1)
+
+                /*if (laberinto.GetCelda(i, j).Valor == 1)
                 {
                     brocha = Brushes.Gray; // Mostrar muro
-                    g.FillRectangle(brocha, i * 64, j * 64, 64, 64);
-                    g.DrawRectangle(Pens.Black, i * 64, j * 64, 64, 64);
-                }
-                else if (laberinto.GetCelda(i, j).EsPosicionClave)
+                    //g.FillRectangle(brocha, i * 64, j * 64, 64, 64);
+                    //g.DrawRectangle(Pens.Black, i * 64, j * 64, 64, 64);
+
+                    img=new Bitmap("img/muros.png");
+                    Rectangle corte=new Rectangle(contadorimagen3*64, 0, alto, ancho);
+                    g.DrawImage(img, i * alto, j * ancho, corte, GraphicsUnit.Pixel);
+                    contadorimagen3++;
+                    if(contadorimagen3==9) contadorimagen3=0;
+                }*/
+                if (laberinto.GetCelda(i, j).EsPosicionClave)
                 {
                     if (laberinto.GetCelda(i, j).Valor == 5)
                     {
@@ -475,12 +517,15 @@ public class Juego
 
                     
                 }
-                else
+                /*else
                 {
                     brocha=Brushes.White; // Espacio vacío
-                    g.FillRectangle(brocha, i * 64, j * 64, 64, 64);
-                    g.DrawRectangle(Pens.Black, i * 64, j * 64, 64, 64);
-                }
+                    //g.FillRectangle(brocha, i * 64, j * 64, 64, 64);
+                    //g.DrawRectangle(Pens.Black, i * 64, j * 64, 64, 64);
+
+                    img=new Bitmap("img/escenario.png");
+                    g.DrawImage(img, i * alto, j * ancho, alto, ancho);
+                }*/
 
                 //g.FillRectangle(brocha, i * 64, j * 64, 64, 64);
                 //g.DrawRectangle(Pens.Black, i * 64, j * 64, 64, 64);
