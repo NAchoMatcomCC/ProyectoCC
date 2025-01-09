@@ -161,7 +161,7 @@ public class Personaje
             jugador2.fue_asesinado=true;
 
             if(jugador2.cant_esferas_dragon>0){ 
-                jugador2.cant_esferas_dragon-=1;
+                //jugador2.cant_esferas_dragon-=1;
                 jugador1.cant_esferas_dragon+=1;
             }
             

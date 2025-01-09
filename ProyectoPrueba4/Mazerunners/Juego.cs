@@ -127,7 +127,8 @@ public class Juego
 
 
     public void Mover(Keys movimiento, int n)
-    {    
+    {
+
         if (jugadores[n].PuedeMoverse() && 
             (movimiento==Keys.W || movimiento==Keys.S || movimiento==Keys.A 
                 || movimiento==Keys.D || (movimiento==Keys.P && jugadores[n].turnos_sin_atacar == 0 ) 
@@ -197,7 +198,7 @@ public class Juego
             }
 
             // Verificar si el movimiento es válido
-            if (laberinto.GetCelda(nuevoX, nuevoY).Valor != 1 ) // Si la celda no es un muro
+            if (laberinto.GetCelda(nuevoX, nuevoY).Valor != 1 && (nuevoX!=jugadores[(n+1)%2].PosX || nuevoY!=jugadores[(n+1)%2].PosY)) // Si la celda no es un muro
             {
                 // Comprobar si hay una trampa en la nueva posición
                 if (laberinto.GetCelda(nuevoX, nuevoY).EsTrampa)
@@ -221,10 +222,12 @@ public class Juego
                     laberinto.GetCelda(nuevoX, nuevoY).EsEsferaDelDragon = false;
                     laberinto.esferas_por_recoger -= 1;
                 }
-                else if (laberinto.GetCelda(jugadores[n].PosX, jugadores[n].PosY).Valor == 7)
+                else if (laberinto.GetCelda(nuevoX, nuevoY).Valor == 7)
                     {
                         if (laberinto.esferas_por_recoger == 0 && jugadores[n].cant_esferas_dragon >= 4)
                         {
+                            jugadores[n].PosX=nuevoX;
+                            jugadores[n].PosY=nuevoY;
                             juego_terminado=true;
                             ganador=jugadores[n].Personaje.Nombre_del_Personaje;
                         }
@@ -401,13 +404,11 @@ public class Juego
     {
         int contadorimagen3=0;
 
-        
-
         for (int i = 0; i < laberinto.Dimensiones; i++)
         {
             for (int j = 0; j < laberinto.Dimensiones; j++)
             {
-                if (laberinto.GetCelda(i,j).Valor != 1)
+                if (laberinto.GetCelda(i,j).Valor != 1 && !laberinto.GetCelda(i, j).EsPosicionClave)
                 {
                     img=new Bitmap("img/escenario.png");
                     g.DrawImage(img, i * alto, j * ancho, alto, ancho);
@@ -428,7 +429,7 @@ public class Juego
     {
         int contadorimagen=0;
         int contadorimagen2=0;
-        int contadorimagen3=0;
+        //int contadorimagen3=0;
         Font font = new Font("Arial", 24);
         Brush brush = Brushes.Red;
         string texto = "";
@@ -467,7 +468,7 @@ public class Juego
                     contadorimagen3++;
                     if(contadorimagen3==9) contadorimagen3=0;
                 }*/
-                if (laberinto.GetCelda(i, j).EsPosicionClave)
+                /*if (laberinto.GetCelda(i, j).EsPosicionClave)
                 {
                     if (laberinto.GetCelda(i, j).Valor == 5)
                     {
@@ -480,6 +481,24 @@ public class Juego
                     else 
                     {
                         brocha=Brushes.RosyBrown; // Celda de salida
+                    }
+                }*/
+                if (laberinto.GetCelda(i, j).EsPosicionClave)
+                {
+                    if (laberinto.GetCelda(i, j).Valor == 5)
+                    {
+                        img=new Bitmap("img/inicio.png");
+                        g.DrawImage(img, i * alto, j * ancho, alto, ancho);
+                    }
+                    else if (laberinto.GetCelda(i, j).Valor == 6)
+                    {
+                        img=new Bitmap("img/otroinicio.png");
+                        g.DrawImage(img, i * alto, j * ancho, alto, ancho);    
+                    }
+                    else 
+                    {
+                        img=new Bitmap("img/shenlong.png");
+                        g.DrawImage(img, i * alto, j * ancho, alto, ancho);
                     }
                 }
                 else if (laberinto.GetCelda(i, j).EsTrampa)
