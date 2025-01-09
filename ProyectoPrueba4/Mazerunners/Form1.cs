@@ -18,7 +18,7 @@ namespace Mazerunners
         private Bitmap img;
 
         private bool laberintoDibujado;
-        public Form1()
+        public Form1(int [] n)
         {
             InitializeComponent();
             this.Size = Screen.PrimaryScreen.Bounds.Size;
@@ -30,9 +30,11 @@ namespace Mazerunners
             laberinto = new Laberinto();
             jugadores = new List<Jugador>();
 
+            
 
 
-            int[] n = { 1, 7 };
+
+            
             for (int i = 0; i < 2; i++)
             {
                 Personaje personaje = new Personaje(n[i]);
@@ -60,6 +62,9 @@ namespace Mazerunners
                 laberintoDibujado = true;
             }
 
+            
+            if (g != null && this.Visible)
+            {
             // Crear un buffer con fondo transparente
             BufferedGraphicsContext bfc = BufferedGraphicsManager.Current;
             BufferedGraphics bf = bfc.Allocate(g, this.ClientRectangle);
@@ -78,6 +83,7 @@ namespace Mazerunners
 
             // Renderizar el buffer
             bf.Render(g);
+            }
             //jugadores[0].jugador_accion=false;
             //jugadores[1].jugador_accion=false;
 

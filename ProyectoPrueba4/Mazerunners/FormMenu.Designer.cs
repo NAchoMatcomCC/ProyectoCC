@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             btnJugar = new Button();
             btnInstrucciones = new Button();
             btnHabilidades = new Button();
@@ -77,15 +78,17 @@
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = true;
             btnSalir.Click += btnSalir_Click;
-
+            // 
+            // timer1
+            // 
             
             // 
             // FormMenu
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            this.BackgroundImage = Image.FromFile("img/fondo.png");
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            BackgroundImage = Image.FromFile("img/fondo.png");
+            BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             ClientSize = new Size(1166, 579);
             Controls.Add(btnSalir);
             Controls.Add(btnHabilidades);
@@ -94,7 +97,6 @@
             Margin = new Padding(5, 6, 5, 6);
             Name = "FormMenu";
             Text = "Menú";
-            Load += FormMenu_Load;
             ResumeLayout(false);
         }
 
@@ -104,5 +106,6 @@
         private System.Windows.Forms.Button btnInstrucciones;
         private System.Windows.Forms.Button btnHabilidades;
         private System.Windows.Forms.Button btnSalir;
+        
     }
 }

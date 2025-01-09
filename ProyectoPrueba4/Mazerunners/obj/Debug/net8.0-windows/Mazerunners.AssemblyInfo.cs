@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Mazerunners")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eb0dcdb35db33092c53e3f5d027a706f09431cc4")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mazerunners")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mazerunners")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

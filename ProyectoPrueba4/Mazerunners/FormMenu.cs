@@ -13,15 +13,23 @@ namespace Mazerunners
 {
     public partial class FormMenu : Form
     {
+        private SoundPlayer sonido;
         public FormMenu()
         {
             InitializeComponent();
+
+            sonido = new SoundPlayer("sonido/itsgoingdownnow.wav");
+            sonido.PlayLooping();
 
         }
 
         private void btnJugar_Click(object sender, EventArgs e)
         {
-            // Aquí irá el código para jugar
+            SeleccionPersonajes seleccion=new SeleccionPersonajes();
+
+            this.Visible=false;
+            seleccion.ShowDialog();
+            this.Visible=true;
         }
 
         private void btnInstrucciones_Click(object sender, EventArgs e)
@@ -44,11 +52,8 @@ namespace Mazerunners
             Application.Exit();
         }
 
-        private void FormMenu_Load(object sender, EventArgs e)
-        {
-            SoundPlayer sonido = new SoundPlayer("sonido/itsgoingdownnow.wav");
-            sonido.Play();
 
-        }
+
+        
     }
 }
