@@ -2,19 +2,22 @@ namespace Mazerunners;
 
 public class Laberinto
 {
-    private float densidad;
     private int dimensiones;
     private Celda[,] laberinto;
 
     public int esferas_por_recoger;
 
-    public Laberinto(float densidad = 0.5f, int dimensiones = 15)
+    private Random rand;
+
+    public Laberinto()
     {
-        this.densidad = densidad;
-        this.dimensiones = dimensiones;
+        
+        dimensiones = 15;
         laberinto = new Celda[dimensiones, dimensiones];
         esferas_por_recoger = 7;
+        rand = new Random();
         GenerarLaberinto();
+        
 
         
     }
@@ -26,63 +29,71 @@ public class Laberinto
 
     private void GenerarLaberinto()
     {
-        // Inicializar la matriz
+        // Inicializar el laberinto con muros
         for (int i = 0; i < dimensiones; i++)
-        {
-            for (int j = 0; j < dimensiones; j++)
+        {   for (int j = 0; j < dimensiones; j++)
             {
-                laberinto[i, j] = new Celda();
-                if (i == 0 || j == 0 || i == dimensiones - 1 || j == dimensiones - 1)
-                {
-                    laberinto[i, j].Valor = 1;
-                    laberinto[i, j].Esaccesible = false;
-
-                }
-                else
-                {
-                    laberinto[i, j].Valor = 0; 
-                }
+                laberinto[i,j]=new Celda();
+                laberinto[i, j].Valor = 1;
+                laberinto[i,j].Esaccesible=false;
             }
         }
 
-        // Calcular la cantidad de paredes a agregar
-        int FParedes = (int)(densidad * (dimensiones * dimensiones) / 4);
+        
+        GenerarLaberinto(1,1);
 
-        // Generar el laberinto
-        Random rand = new Random();
-        for (int i = 0; i < FParedes; i++)
-        {
-            int x = rand.Next(2, dimensiones - 2) / 2 * 2; // x par
-            int y = rand.Next(2, dimensiones - 2) / 2 * 2; // y par
-            laberinto[x, y].Valor = 1; // Colocar pared
-            laberinto[x, y].Esaccesible = false;
-
-            // Agregar paredes alrededor
-            for (int j = 0; j < 4; j++)
-            {
-                int[] mx = { x, x, x + 2, x - 2 };
-                int[] my = { y + 2, y - 2, y, y };
-                int r = rand.Next(0, 4); // Elegir una dirección aleatoria
-                if (my[r] >= 0 && my[r] < dimensiones && mx[r] >= 0 && mx[r] < dimensiones && laberinto[my[r], mx[r]].Valor == 0)
-                {
-                    laberinto[my[r], mx[r]].Valor = 1; // Colocar pared
-                    laberinto[my[r], mx[r]].Esaccesible = false;
-                    // Conectar la pared
-                    int midX = (x + mx[r]) / 2;
-                    int midY = (y + my[r]) / 2;
-                    if (midY >= 0 && midY < dimensiones && midX >= 0 && midX < dimensiones)
-                    {
-                        laberinto[midY, midX].Valor = 1; // Conectar
-                        laberinto[midY, midX].Esaccesible = false;
-                    }
-                }
-            }
-        }
-        int[,] accesibles=CeldasInaccesibles();
-        QuitarCeldasInaccesibles(accesibles);
+        //int[,] accesibles=CeldasInaccesibles();
+        //QuitarCeldasInaccesibles(accesibles);
         GenerarTrampas();
         SeleccionarCeldas();
         PonerEsferasDelDragon();
+    }
+
+
+    private void GenerarLaberinto(int x, int y)
+    {
+        // Direcciones posibles: derecha, abajo, izquierda, arriba
+        int[] direcciones = { 0, 1, 2, 3 }; // 0: derecha, 1: abajo, 2: izquierda, 3: arriba
+        Mezclar(direcciones);
+
+        for (int i = 0; i < direcciones.Length; i++)
+        {
+            int nx = x, ny = y;
+
+            switch (direcciones[i])
+            {
+                case 0: nx += 2; break; // Derecha
+                case 1: ny += 2; break; // Abajo
+                case 2: nx -= 2; break; // Izquierda
+                case 3: ny -= 2; break; // Arriba
+            }
+
+            if (PosionValida(nx, ny) && laberinto[nx, ny].Valor == 1 && laberinto[(nx + x) / 2, (ny + y) / 2].Valor == 1)
+            {
+                // Marcar como camino
+                laberinto[(nx + x) / 2, (ny + y) / 2].Valor = 0; // Crear un camino entre la celda actual y la nueva
+                laberinto[(nx + x) / 2, (ny + y) / 2].Esaccesible=true;
+                laberinto[nx, ny].Valor = 0; // Marcar la nueva celda como camino
+                laberinto[nx, ny].Esaccesible=true;
+                GenerarLaberinto(nx, ny); // Recursión
+            }
+        }
+    }
+
+    private void Mezclar(int[] direcciones)
+    {
+        for (int i = direcciones.Length - 1; i > 0; i--)
+        {
+            int j = rand.Next(i + 1);
+            int temporal = direcciones[i];
+            direcciones[i] = direcciones[j];
+            direcciones[j] = temporal;
+        }
+    }
+
+    private bool PosionValida(int x, int y)
+    {
+        return x > 0 && x < dimensiones-1 && y > 0 && y < dimensiones-1;
     }
 
     public Celda GetCelda(int x, int y)
@@ -92,7 +103,7 @@ public class Laberinto
 
     private void GenerarTrampas()
     {
-       Random rand = new Random();
+       //Random rand = new Random();
        int totalCeldasVacias = 0;
 
        // Contar celdas vacías
@@ -323,7 +334,9 @@ public class Laberinto
         {
             for (int j = 0; j < laberinto.GetLength(1); j++)
             {
-                if(laberinto[i,j].Valor==accesibles[i,j]) laberinto[i,j].Valor=1;
+                if(laberinto[i,j].Valor==accesibles[i,j]) 
+                    laberinto[i,j].Valor=1;
+                    laberinto[i,j].Esaccesible=false;
             }
         }
     }

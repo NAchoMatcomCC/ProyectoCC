@@ -1,58 +1,62 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ParaTrabajarAhora2\\ProyectoCC\\ProyectoPrueba4\\Mazerunners\\",
+  "WorkspaceRootPath": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ProyectoPrueba4\\ProyectoPrueba4\\Mazerunners\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ParaTrabajarAhora2\\ProyectoCC\\ProyectoPrueba4\\Mazerunners\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|solutionrelative:form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|d:\\universidad\\matcom\\programaci\u00F3n\\proyecto\\paratrabajarahora2\\proyectocc\\proyectoprueba4\\mazerunners\\form2.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|solutionrelative:form2.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|d:\\universidad\\matcom\\programaci\u00F3n\\proyecto\\paratrabajarahora2\\proyectocc\\proyectoprueba4\\mazerunners\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|solutionrelative:form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ParaTrabajarAhora2\\ProyectoCC\\ProyectoPrueba4\\Mazerunners\\formmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|solutionrelative:formmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|d:\\universidad\\matcom\\programaci\u00F3n\\proyecto\\paratrabajarahora2\\proyectocc\\proyectoprueba4\\mazerunners\\formmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|solutionrelative:formmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|d:\\universidad\\matcom\\programaci\u00F3n\\proyecto\\paratrabajarahora2\\proyectocc\\proyectoprueba4\\mazerunners\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|solutionrelative:form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|d:\\universidad\\matcom\\programaci\u00F3n\\proyecto\\paratrabajarahora2\\proyectocc\\proyectoprueba4\\mazerunners\\juego.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|solutionrelative:juego.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|d:\\universidad\\matcom\\programaci\u00F3n\\proyecto\\paratrabajarahora2\\proyectocc\\proyectoprueba4\\mazerunners\\mazerunners.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
-      "RelativeMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|solutionrelative:mazerunners.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|d:\\universidad\\matcom\\programaci\u00F3n\\proyecto\\paratrabajarahora2\\proyectocc\\proyectoprueba4\\mazerunners\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ParaTrabajarAhora2\\ProyectoCC\\ProyectoPrueba4\\Mazerunners\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|d:\\universidad\\matcom\\programaci\u00F3n\\proyecto\\paratrabajarahora2\\proyectocc\\proyectoprueba4\\mazerunners\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|d:\\universidad\\matcom\\programaci\u00F3n\\proyecto\\proyectoprueba4\\proyectoprueba4\\mazerunners\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|d:\\universidad\\matcom\\programaci\u00F3n\\proyecto\\paratrabajarahora2\\proyectocc\\proyectoprueba4\\mazerunners\\jugador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|solutionrelative:jugador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|d:\\universidad\\matcom\\programaci\u00F3n\\proyecto\\proyectoprueba4\\proyectoprueba4\\mazerunners\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|solutionrelative:form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|d:\\universidad\\matcom\\programaci\u00F3n\\proyecto\\paratrabajarahora2\\proyectocc\\proyectoprueba4\\mazerunners\\laberinto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|d:\\universidad\\matcom\\programaci\u00F3n\\proyecto\\proyectoprueba4\\proyectoprueba4\\mazerunners\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|d:\\universidad\\matcom\\programaci\u00F3n\\proyecto\\proyectoprueba4\\proyectoprueba4\\mazerunners\\laberinto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|solutionrelative:laberinto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|d:\\universidad\\matcom\\programaci\u00F3n\\proyecto\\proyectoprueba4\\proyectoprueba4\\mazerunners\\form2.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|solutionrelative:form2.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|d:\\universidad\\matcom\\programaci\u00F3n\\proyecto\\proyectoprueba4\\proyectoprueba4\\mazerunners\\cpu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|solutionrelative:cpu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|d:\\universidad\\matcom\\programaci\u00F3n\\proyecto\\proyectoprueba4\\proyectoprueba4\\mazerunners\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ProyectoPrueba4\\ProyectoPrueba4\\Mazerunners\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|solutionrelative:form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|d:\\universidad\\matcom\\programaci\u00F3n\\proyecto\\proyectoprueba4\\proyectoprueba4\\mazerunners\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|solutionrelative:form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ProyectoPrueba4\\ProyectoPrueba4\\Mazerunners\\formmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|solutionrelative:formmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|d:\\universidad\\matcom\\programaci\u00F3n\\proyecto\\proyectoprueba4\\proyectoprueba4\\mazerunners\\formmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|solutionrelative:formmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|d:\\universidad\\matcom\\programaci\u00F3n\\proyecto\\proyectoprueba4\\proyectoprueba4\\mazerunners\\juego.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|solutionrelative:juego.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|d:\\universidad\\matcom\\programaci\u00F3n\\proyecto\\proyectoprueba4\\proyectoprueba4\\mazerunners\\mazerunners.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|solutionrelative:mazerunners.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|d:\\universidad\\matcom\\programaci\u00F3n\\proyecto\\proyectoprueba4\\proyectoprueba4\\mazerunners\\jugador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{981F5CD5-E600-4AA1-86D1-8C836053686C}|Mazerunners.csproj|solutionrelative:jugador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -62,7 +66,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -71,23 +75,108 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Form2.Designer.cs",
-              "DocumentMoniker": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ParaTrabajarAhora2\\ProyectoCC\\ProyectoPrueba4\\Mazerunners\\Form2.Designer.cs",
-              "RelativeDocumentMoniker": "Form2.Designer.cs",
-              "ToolTip": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ParaTrabajarAhora2\\ProyectoCC\\ProyectoPrueba4\\Mazerunners\\Form2.Designer.cs",
-              "RelativeToolTip": "Form2.Designer.cs",
-              "ViewState": "AgIAAEgAAAAAAAAAAAAkwFQAAAAjAAAAAAAAAA==",
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ProyectoPrueba4\\ProyectoPrueba4\\Mazerunners\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "Form1.Designer.cs",
+              "ToolTip": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ProyectoPrueba4\\ProyectoPrueba4\\Mazerunners\\Form1.Designer.cs",
+              "RelativeToolTip": "Form1.Designer.cs",
+              "ViewState": "AgIAAHYAAAAAAAAAAAAAAHYAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-08T10:13:34.884Z",
+              "WhenOpened": "2025-01-03T04:21:36.706Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ProyectoPrueba4\\ProyectoPrueba4\\Mazerunners\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ProyectoPrueba4\\ProyectoPrueba4\\Mazerunners\\Form1.cs",
+              "RelativeToolTip": "Form1.cs",
+              "ViewState": "AgIAAIsAAAAAAAAAAAAAAJIAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-03T03:26:10.588Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ProyectoPrueba4\\ProyectoPrueba4\\Mazerunners\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ProyectoPrueba4\\ProyectoPrueba4\\Mazerunners\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-08T07:26:39.262Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CPU.cs",
+              "DocumentMoniker": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ProyectoPrueba4\\ProyectoPrueba4\\Mazerunners\\CPU.cs",
+              "RelativeDocumentMoniker": "CPU.cs",
+              "ToolTip": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ProyectoPrueba4\\ProyectoPrueba4\\Mazerunners\\CPU.cs",
+              "RelativeToolTip": "CPU.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-19T20:43:58.872Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Juego.cs",
+              "DocumentMoniker": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ProyectoPrueba4\\ProyectoPrueba4\\Mazerunners\\Juego.cs",
+              "RelativeDocumentMoniker": "Juego.cs",
+              "ToolTip": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ProyectoPrueba4\\ProyectoPrueba4\\Mazerunners\\Juego.cs",
+              "RelativeToolTip": "Juego.cs",
+              "ViewState": "AgIAAHQBAAAAAAAAAAAAAHcBAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-03T03:52:14.585Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Laberinto.cs",
+              "DocumentMoniker": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ProyectoPrueba4\\ProyectoPrueba4\\Mazerunners\\Laberinto.cs",
+              "RelativeDocumentMoniker": "Laberinto.cs",
+              "ToolTip": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ProyectoPrueba4\\ProyectoPrueba4\\Mazerunners\\Laberinto.cs",
+              "RelativeToolTip": "Laberinto.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAwwA0AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-03T04:52:45.479Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "Form1.cs [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ProyectoPrueba4\\ProyectoPrueba4\\Mazerunners\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ProyectoPrueba4\\ProyectoPrueba4\\Mazerunners\\Form1.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Form1.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-03T03:22:44.99Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Form2.Designer.cs",
+              "DocumentMoniker": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ProyectoPrueba4\\ProyectoPrueba4\\Mazerunners\\Form2.Designer.cs",
+              "RelativeDocumentMoniker": "Form2.Designer.cs",
+              "ToolTip": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ProyectoPrueba4\\ProyectoPrueba4\\Mazerunners\\Form2.Designer.cs",
+              "RelativeToolTip": "Form2.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-08T10:13:34.884Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "Form2.cs",
-              "DocumentMoniker": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ParaTrabajarAhora2\\ProyectoCC\\ProyectoPrueba4\\Mazerunners\\Form2.cs",
+              "DocumentMoniker": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ProyectoPrueba4\\ProyectoPrueba4\\Mazerunners\\Form2.cs",
               "RelativeDocumentMoniker": "Form2.cs",
-              "ToolTip": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ParaTrabajarAhora2\\ProyectoCC\\ProyectoPrueba4\\Mazerunners\\Form2.cs",
+              "ToolTip": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ProyectoPrueba4\\ProyectoPrueba4\\Mazerunners\\Form2.cs",
               "RelativeToolTip": "Form2.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAwB0AAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -96,71 +185,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ParaTrabajarAhora2\\ProyectoCC\\ProyectoPrueba4\\Mazerunners\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ParaTrabajarAhora2\\ProyectoCC\\ProyectoPrueba4\\Mazerunners\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-08T07:26:39.262Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Juego.cs",
-              "DocumentMoniker": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ParaTrabajarAhora2\\ProyectoCC\\ProyectoPrueba4\\Mazerunners\\Juego.cs",
-              "RelativeDocumentMoniker": "Juego.cs",
-              "ToolTip": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ParaTrabajarAhora2\\ProyectoCC\\ProyectoPrueba4\\Mazerunners\\Juego.cs",
-              "RelativeToolTip": "Juego.cs",
-              "ViewState": "AgIAAHQBAAAAAAAAAAAAAHcBAABDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-03T03:52:14.585Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Form2.cs [Dise\u00F1o]",
-              "DocumentMoniker": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ParaTrabajarAhora2\\ProyectoCC\\ProyectoPrueba4\\Mazerunners\\Form2.cs",
-              "RelativeDocumentMoniker": "Form2.cs",
-              "ToolTip": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ParaTrabajarAhora2\\ProyectoCC\\ProyectoPrueba4\\Mazerunners\\Form2.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Form2.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-08T10:12:40.523Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Form1.Designer.cs",
-              "DocumentMoniker": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ParaTrabajarAhora2\\ProyectoCC\\ProyectoPrueba4\\Mazerunners\\Form1.Designer.cs",
-              "RelativeDocumentMoniker": "Form1.Designer.cs",
-              "ToolTip": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ParaTrabajarAhora2\\ProyectoCC\\ProyectoPrueba4\\Mazerunners\\Form1.Designer.cs",
-              "RelativeToolTip": "Form1.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-03T04:21:36.706Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Laberinto.cs",
-              "DocumentMoniker": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ParaTrabajarAhora2\\ProyectoCC\\ProyectoPrueba4\\Mazerunners\\Laberinto.cs",
-              "RelativeDocumentMoniker": "Laberinto.cs",
-              "ToolTip": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ParaTrabajarAhora2\\ProyectoCC\\ProyectoPrueba4\\Mazerunners\\Laberinto.cs",
-              "RelativeToolTip": "Laberinto.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAADwvwgAAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-03T04:52:45.479Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 10,
               "Title": "FormMenu.cs",
-              "DocumentMoniker": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ParaTrabajarAhora2\\ProyectoCC\\ProyectoPrueba4\\Mazerunners\\FormMenu.cs",
+              "DocumentMoniker": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ProyectoPrueba4\\ProyectoPrueba4\\Mazerunners\\FormMenu.cs",
               "RelativeDocumentMoniker": "FormMenu.cs",
-              "ToolTip": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ParaTrabajarAhora2\\ProyectoCC\\ProyectoPrueba4\\Mazerunners\\FormMenu.cs",
+              "ToolTip": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ProyectoPrueba4\\ProyectoPrueba4\\Mazerunners\\FormMenu.cs",
               "RelativeToolTip": "FormMenu.cs",
               "ViewState": "AgIAADQAAAAAAAAAAIA4wDkAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -169,50 +198,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 12,
               "Title": "Mazerunners",
-              "DocumentMoniker": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ParaTrabajarAhora2\\ProyectoCC\\ProyectoPrueba4\\Mazerunners\\Mazerunners.csproj",
+              "DocumentMoniker": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ProyectoPrueba4\\ProyectoPrueba4\\Mazerunners\\Mazerunners.csproj",
               "RelativeDocumentMoniker": "Mazerunners.csproj",
-              "ToolTip": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ParaTrabajarAhora2\\ProyectoCC\\ProyectoPrueba4\\Mazerunners\\Mazerunners.csproj",
+              "ToolTip": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ProyectoPrueba4\\ProyectoPrueba4\\Mazerunners\\Mazerunners.csproj",
               "RelativeToolTip": "Mazerunners.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2025-01-08T08:43:13.591Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "Jugador.cs",
-              "DocumentMoniker": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ParaTrabajarAhora2\\ProyectoCC\\ProyectoPrueba4\\Mazerunners\\Jugador.cs",
+              "DocumentMoniker": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ProyectoPrueba4\\ProyectoPrueba4\\Mazerunners\\Jugador.cs",
               "RelativeDocumentMoniker": "Jugador.cs",
-              "ToolTip": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ParaTrabajarAhora2\\ProyectoCC\\ProyectoPrueba4\\Mazerunners\\Jugador.cs",
+              "ToolTip": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ProyectoPrueba4\\ProyectoPrueba4\\Mazerunners\\Jugador.cs",
               "RelativeToolTip": "Jugador.cs",
               "ViewState": "AgIAACMAAAAAAAAAAAAwwDMAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-03T03:26:37.158Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ParaTrabajarAhora2\\ProyectoCC\\ProyectoPrueba4\\Mazerunners\\Form1.cs",
-              "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ParaTrabajarAhora2\\ProyectoCC\\ProyectoPrueba4\\Mazerunners\\Form1.cs",
-              "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAAHYAAAAAAAAAAAAYwH8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-03T03:26:10.588Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "FormMenu.cs [Dise\u00F1o]",
-              "DocumentMoniker": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ParaTrabajarAhora2\\ProyectoCC\\ProyectoPrueba4\\Mazerunners\\FormMenu.cs",
-              "RelativeDocumentMoniker": "FormMenu.cs",
-              "ToolTip": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ParaTrabajarAhora2\\ProyectoCC\\ProyectoPrueba4\\Mazerunners\\FormMenu.cs [Dise\u00F1o]",
-              "RelativeToolTip": "FormMenu.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-08T07:21:55.754Z"
             },
             {
               "$type": "Bookmark",
@@ -220,14 +225,25 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Form1.cs [Dise\u00F1o]",
-              "DocumentMoniker": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ParaTrabajarAhora2\\ProyectoCC\\ProyectoPrueba4\\Mazerunners\\Form1.cs",
-              "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\CopiaSeguridad\\ProyectoPrueba4Conwindowsform5\\Mazerunners\\Form1.cs [Dise\u00F1o]",
-              "RelativeToolTip": "..\\..\\..\\..\\CopiaSeguridad\\ProyectoPrueba4Conwindowsform5\\Mazerunners\\Form1.cs [Dise\u00F1o]",
+              "DocumentIndex": 7,
+              "Title": "Form2.cs [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ProyectoPrueba4\\ProyectoPrueba4\\Mazerunners\\Form2.cs",
+              "RelativeDocumentMoniker": "Form2.cs",
+              "ToolTip": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ProyectoPrueba4\\ProyectoPrueba4\\Mazerunners\\Form2.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Form2.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-03T03:22:44.99Z"
+              "WhenOpened": "2025-01-08T10:12:40.523Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "FormMenu.cs [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ProyectoPrueba4\\ProyectoPrueba4\\Mazerunners\\FormMenu.cs",
+              "RelativeDocumentMoniker": "FormMenu.cs",
+              "ToolTip": "D:\\Universidad\\MATCOM\\Programaci\u00F3n\\Proyecto\\ParaTrabajarAhora2\\ProyectoCC\\ProyectoPrueba4\\Mazerunners\\FormMenu.cs [Dise\u00F1o]",
+              "RelativeToolTip": "..\\..\\..\\ParaTrabajarAhora2\\ProyectoCC\\ProyectoPrueba4\\Mazerunners\\FormMenu.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-08T07:21:55.754Z"
             }
           ]
         }
