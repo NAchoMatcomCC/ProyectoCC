@@ -66,15 +66,15 @@ public class Jugador
     private string DireccionImagen()
     {
         if (Personaje.Nombre_del_Personaje == "Goku") return "img/goku.png";
-        else if (Personaje.Nombre_del_Personaje == "Freezer") return "img/goku.png";
-        else if (Personaje.Nombre_del_Personaje == "Vegeta") return "img/goku.png";
-        else if (Personaje.Nombre_del_Personaje == "Krilin") return "img/goku.png";
-        else if (Personaje.Nombre_del_Personaje == "Jiren") return "img/goku.png";
-        else if (Personaje.Nombre_del_Personaje == "Gohan") return "img/goku.png";
+        else if (Personaje.Nombre_del_Personaje == "Freezer") return "img/freezer.png";
+        else if (Personaje.Nombre_del_Personaje == "Vegeta") return "img/vegeta.png";
+        else if (Personaje.Nombre_del_Personaje == "Krilin") return "img/krillin.png";
+        else if (Personaje.Nombre_del_Personaje == "Jiren") return "img/majin_boo.png";
+        else if (Personaje.Nombre_del_Personaje == "Gohan") return "img/gohan.png";
         else if (Personaje.Nombre_del_Personaje == "Androide 18") return "img/androide.png";
-        else if (Personaje.Nombre_del_Personaje == "Piccolo") return "img/goku.png";
-        else if (Personaje.Nombre_del_Personaje == "Trunks") return "img/goku.png";
-        else if (Personaje.Nombre_del_Personaje == "Cell") return "img/goku.png";
+        else if (Personaje.Nombre_del_Personaje == "Piccolo") return "img/piccolo.png";
+        else if (Personaje.Nombre_del_Personaje == "Trunks") return "img/trunks.png";
+        else if (Personaje.Nombre_del_Personaje == "Cell") return "img/cell.png";
         else return "Personaje desconocido";
     }
 
