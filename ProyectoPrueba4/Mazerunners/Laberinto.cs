@@ -9,6 +9,9 @@ public class Laberinto
 
     private Random rand;
 
+    public int salidax;
+    public int saliday;
+
     public Laberinto()
     {
         
@@ -16,6 +19,10 @@ public class Laberinto
         laberinto = new Celda[dimensiones, dimensiones];
         esferas_por_recoger = 7;
         rand = new Random();
+
+        salidax=0;
+        saliday=0;
+
         GenerarLaberinto();
         
 
@@ -159,7 +166,7 @@ public class Laberinto
         Random rand = new Random();
         (int, int) celdaInicio1 = (-1, -1);
         (int, int) celdaInicio2 = (-1, -1);
-        (int, int) celdaSalida = (-1, -1);
+        //(int, int) celdaSalida = (-1, -1);
 
         // Intentar seleccionar la primera celda de inicio
         while (celdaInicio1 == (-1, -1))
@@ -190,7 +197,7 @@ public class Laberinto
         }
 
         // Intentar seleccionar la celda de salida, asegurándose de que no sea adyacente a las celdas de inicio
-        while (celdaSalida == (-1, -1))
+        /*while (celdaSalida == (-1, -1))
         {
             int x = rand.Next(1, dimensiones - 1);
             int y = rand.Next(1, dimensiones - 1);
@@ -201,8 +208,32 @@ public class Laberinto
                 laberinto[x, y].Valor = 7; // Asignar valor 7 a la celda de salida
                 laberinto[x, y].EsPosicionClave=true;
             }
-        }
+        }*/
     }
+
+    public void GenerarSalida(int posxjugador1, int posyjugador1, int posxjugador2, int posyjugador2)
+    {
+        (int, int) celdaSalida = (-1, -1);
+
+         while (celdaSalida == (-1, -1))
+        {
+            int x = rand.Next(1, dimensiones - 1);
+            int y = rand.Next(1, dimensiones - 1);
+
+            if (laberinto[x, y].Valor == 0 && (x!=posxjugador1 || y!=posyjugador1) && (x!=posxjugador2 || y!=posyjugador2))
+            {
+                celdaSalida = (x, y);
+                laberinto[x, y].Valor = 7; // Asignar valor 7 a la celda de salida
+                laberinto[x, y].EsPosicionClave=true;
+
+                salidax=x;
+                saliday=y;
+            }
+        }
+
+        
+    }
+
 
     private void PonerEsferasDelDragon(){
 

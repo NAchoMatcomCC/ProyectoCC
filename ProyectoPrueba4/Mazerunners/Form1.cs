@@ -122,6 +122,17 @@ namespace Mazerunners
                 jugadores[i].ActualizarEstado(i);
             }
 
+            if(laberinto.esferas_por_recoger==0 && laberinto.salidax==0) laberinto.GenerarSalida(jugadores[0].PosX, jugadores[0].PosY, jugadores[1].PosX, jugadores[1].PosY);
+            if(laberinto.esferas_por_recoger>0 && laberinto.salidax!=0)
+            {
+                laberinto.GetCelda(laberinto.salidax, laberinto.saliday).Valor=0;
+                laberinto.GetCelda(laberinto.salidax, laberinto.saliday).EsPosicionClave=false;
+                laberinto.salidax=0;
+                laberinto.saliday=0;
+
+                
+            } 
+
         }
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
