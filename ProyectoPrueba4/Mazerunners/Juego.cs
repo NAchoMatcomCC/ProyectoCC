@@ -138,6 +138,10 @@ public class Juego
             int nuevoX = jugadores[n].PosX;
             int nuevoY = jugadores[n].PosY;
 
+            for(int i=0; i<jugadores[n].jugador_velocidad; i++)
+            {
+                
+
             switch (movimiento)
             {
                 case Keys.W: // Arriba
@@ -197,6 +201,8 @@ public class Juego
                         return;
             }
 
+
+            
             // Verificar si el movimiento es válido
             if (laberinto.GetCelda(nuevoX, nuevoY).Valor != 1 && (nuevoX!=jugadores[(n+1)%2].PosX || nuevoY!=jugadores[(n+1)%2].PosY)) // Si la celda no es un muro
             {
@@ -212,6 +218,8 @@ public class Juego
                     // Convertir la celda de trampa a normal
                     laberinto.GetCelda(nuevoX, nuevoY).Valor = 0; // Cambiar a celda normal
                     laberinto.GetCelda(nuevoX, nuevoY).EsTrampa = false; // Ya no es trampa
+
+                    break;
                 }
                 else if (laberinto.GetCelda(nuevoX, nuevoY).EsEsferaDelDragon)
                 {
@@ -221,6 +229,8 @@ public class Juego
                     jugadores[n].cant_esferas_dragon+=1;
                     laberinto.GetCelda(nuevoX, nuevoY).EsEsferaDelDragon = false;
                     laberinto.esferas_por_recoger -= 1;
+
+                    break;
                 }
                 else if (laberinto.GetCelda(nuevoX, nuevoY).Valor == 7)
                     {
@@ -236,13 +246,21 @@ public class Juego
                             jugadores[n].PosX = jugadores[n].x;
                             jugadores[n].PosY = jugadores[n].y;
                         }
+
+                        break;
                     }
                 else
                 {
                     jugadores[n].PosX = nuevoX;
                     jugadores[n].PosY = nuevoY;
                 }
+
+                
             }
+            else break;
+
+            
+            
 
              
         }
@@ -251,7 +269,7 @@ public class Juego
 
         
 
-        
+        }
     }
 
     private void ManejarTrampa(Jugador jugador, int tipoTrampa)

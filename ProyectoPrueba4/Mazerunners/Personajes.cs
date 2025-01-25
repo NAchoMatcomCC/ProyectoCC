@@ -5,8 +5,8 @@ public class Personaje
 
     public PersonajeElegir personaje;
     public int tiempo_de_enfriamiento;
-    public int velocidad;
-    public int fuerza_de_ataque;
+    //public int velocidad;
+    //public int fuerza_de_ataque;
     public int vida;
 
 
@@ -31,8 +31,8 @@ public class Personaje
 
         personaje=ElegirPersonaje(n);
         tiempo_de_enfriamiento=0;
-        fuerza_de_ataque=1;
-        velocidad=1;
+        //fuerza_de_ataque=1;
+        //velocidad=1;
         vida=10;
 
     }
@@ -66,8 +66,8 @@ public class Personaje
 
             case PersonajeElegir.Jiren:
                 PoderAbsoluto(jugador1);
-                fuerza_de_ataque+=1;
-                tiempo_de_enfriamiento=100;
+                jugador1.jugador_fuerza_ataque+=1;
+                tiempo_de_enfriamiento=150;
                 break;
 
             case PersonajeElegir.Gohan:
@@ -87,9 +87,9 @@ public class Personaje
                 break;
 
             case PersonajeElegir.Trunks:
-                Habilidad_Ataque(jugador1, jugador2,2);
-                velocidad+=1;
-                tiempo_de_enfriamiento=50;;
+                //Habilidad_Ataque(jugador1, jugador2,2); 
+                jugador1.jugador_velocidad+=1;
+                tiempo_de_enfriamiento=150;;
                 break;
 
             case PersonajeElegir.Cell:

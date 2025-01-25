@@ -15,6 +15,9 @@ public class Jugador
     private Bitmap jugadorimg;
     public bool jugador_accion;
 
+    public int jugador_velocidad;
+    public int jugador_fuerza_ataque;
+
     
     public Personaje Personaje { get; private set; }
     public int turnos_sin_atacar;
@@ -42,6 +45,8 @@ public class Jugador
         direccion= direcionmovimiento.HaciaAbajo;
         jugador_accion=false;
         jugadorimg=new Bitmap(DireccionImagen());
+        jugador_velocidad=1;
+        jugador_fuerza_ataque=1;
         
         
         NoMoversePorTurnos1=0;
@@ -92,7 +97,7 @@ public class Jugador
      public void Atacar(Jugador jugador2){
 
         if (Posicion_cercana(jugador2)){
-            Personaje.Habilidad_Ataque(this, jugador2, 2*Personaje.fuerza_de_ataque);
+            Personaje.Habilidad_Ataque(this, jugador2, 2*jugador_fuerza_ataque);
             turnos_sin_atacar=5;
         } 
 
