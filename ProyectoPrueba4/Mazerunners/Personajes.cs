@@ -5,8 +5,7 @@ public class Personaje
 
     public PersonajeElegir personaje;
     public int tiempo_de_enfriamiento;
-    //public int velocidad;
-    //public int fuerza_de_ataque;
+   
     public int vida;
 
 
@@ -31,13 +30,12 @@ public class Personaje
 
         personaje=ElegirPersonaje(n);
         tiempo_de_enfriamiento=0;
-        //fuerza_de_ataque=1;
-        //velocidad=1;
+        
         vida=10;
 
     }
 
-
+//Maneja los poderes de los personajes
     public void Poder(Jugador jugador1, Jugador jugador2)
     {
         switch (personaje)
@@ -103,8 +101,6 @@ public class Personaje
         }
     }
 
-    
-
     public string Nombre_del_Personaje
     {
         get
@@ -138,7 +134,7 @@ public class Personaje
     }
 
    
-
+//M'etodos para crear algunas habilidades de los personajes
     private void Paralizar(Jugador jugador, int cant_turnos)
     {
         // El jugador no puede moverse en su próximo turno
@@ -176,6 +172,7 @@ public class Personaje
         Console.WriteLine("¡Piccolo ha usado Regeneración y ha restaurado 3 de vida!");
     }
 
+//Personaje elegido se llama desde el constructor
     PersonajeElegir ElegirPersonaje(int n){
 
         if (n==1){

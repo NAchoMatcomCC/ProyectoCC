@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace Mazerunners
 {
+
     public partial class SeleccionPersonajes : Form
     {
         private int[] personajes_seleccionados = new int[2];
@@ -18,6 +19,9 @@ namespace Mazerunners
             InitializeComponent();
         }
 
+
+
+//Combobox para la selecci'on de los personajes
         private void SeleccionPersonajes_Load(object sender, EventArgs e)
         {
             // Crear listas de personajes para cada combobox
@@ -30,7 +34,7 @@ namespace Mazerunners
             // Inicializar combobox2 con personajes2
             comboBox2.DataSource = personajes2;
         }
-
+//Inicia el juego
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
 
@@ -49,7 +53,7 @@ namespace Mazerunners
             this.Close();
 
         }
-
+//Vuelve al formulario del men'u
         private void btnAtras_Click(object sender, EventArgs e)
         {
             // Aquí irá el código para regresar al formulario anterior

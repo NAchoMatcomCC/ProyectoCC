@@ -68,6 +68,7 @@ public class Jugador
 
     }
 
+//Enlace de las im'agenes de los  personajes
     private string DireccionImagen()
     {
         if (Personaje.Nombre_del_Personaje == "Goku") return "img/goku.png";
@@ -83,6 +84,7 @@ public class Jugador
         else return "Personaje desconocido";
     }
 
+//Posici'on inicial del jugador
     private void ObtenerPosicionInicialJ1(int jugadorNumero)
     {
         do
@@ -94,6 +96,7 @@ public class Jugador
         
     }
 
+//Ataque del jugador
      public void Atacar(Jugador jugador2){
 
         if (Posicion_cercana(jugador2)){
@@ -103,6 +106,7 @@ public class Jugador
 
     }
 
+//Ver si el otro jugador se encuentra en una posici'on cercana
      public bool Posicion_cercana(Jugador otroJugador)
     {
 
@@ -137,12 +141,17 @@ public class Jugador
 
         return false;
     }
+
+//Reduce la vida del jugador
     public void ReducirVida(int cantidad)
     {
         Vida -= cantidad;
         if (Vida < 0) Vida = 0; // Asegurarse de que la vida no sea negativa
     }
 
+//Gestiona el tiempo de enfriamiento, los  turnos sin atacar y sin moverse
+//Devuelve al jugador a su posicion inicial si su vida llega a cero y verifica si muri'o por una trampa
+//para quitarle una esfera del drag'on y gnerarla en el laberinto
     public void ActualizarEstado(int n)
     {
         if (Vida == 0)
@@ -176,20 +185,20 @@ public class Jugador
         if(turnos_sin_atacar>0) turnos_sin_atacar--;
         if(Personaje.tiempo_de_enfriamiento>0) Personaje.tiempo_de_enfriamiento--;
     }
-
+//Turnos sin moverse
     public void NoMoversePorTurnos(int turnos)
     {
         // Establecer el contador de turnos sin poder moverse
         NoMoversePorTurnos1 += turnos;
         Console.WriteLine($"¡No puedes moverte por {turnos} turnos!");
     }
-
+//Verifica si el jugador puede moverse
     public bool PuedeMoverse()
     {
         // Verificar si el jugador puede moverse
         return NoMoversePorTurnos1 == 0;
     }
-
+//Muestra al jugador en el laberinto
     public void Mostrar(Graphics g)
     {
         if (jugador_accion)
@@ -212,12 +221,5 @@ public class Jugador
         
 
     }
-
-    public void Mover()
-    {
-
-    }
-
-    
-    
+        
 }

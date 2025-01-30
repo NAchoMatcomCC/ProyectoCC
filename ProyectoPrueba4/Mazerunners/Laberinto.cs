@@ -34,6 +34,8 @@ public class Laberinto
         get { return dimensiones; }
     }
 
+
+//Crea la matriz de Celdas llena de muros
     private void GenerarLaberinto()
     {
         // Inicializar el laberinto con muros
@@ -49,14 +51,17 @@ public class Laberinto
         
         GenerarLaberinto(1,1);
 
-        //int[,] accesibles=CeldasInaccesibles();
-        //QuitarCeldasInaccesibles(accesibles);
+        
         GenerarTrampas();
         SeleccionarCeldas();
-        PonerEsferasDelDragon();
+        for (int i = 0; i < 7; i++)
+        {
+            Poner1EsferasDelDragon();  
+        }
+        //PonerEsferasDelDragon();
     }
 
-
+//M'etodo para la generaci'on del laberinto usando un algoritmo de backtracking
     private void GenerarLaberinto(int x, int y)
     {
         // Direcciones posibles: derecha, abajo, izquierda, arriba
@@ -86,7 +91,7 @@ public class Laberinto
             }
         }
     }
-
+//Cambia el orden de las direcciones en cada llamada recursiva
     private void Mezclar(int[] direcciones)
     {
         for (int i = direcciones.Length - 1; i > 0; i--)
@@ -97,17 +102,17 @@ public class Laberinto
             direcciones[j] = temporal;
         }
     }
-
+//Determina si la posici'on que se est'a dentro de las dimensiones del laberinto
     private bool PosionValida(int x, int y)
     {
         return x > 0 && x < dimensiones-1 && y > 0 && y < dimensiones-1;
     }
-
+//M'etodo para seleccionar una celda del laberinto
     public Celda GetCelda(int x, int y)
     {
         return laberinto[x, y];
     }
-
+//Genera las trampas
     private void GenerarTrampas()
     {
        //Random rand = new Random();
@@ -151,7 +156,7 @@ public class Laberinto
         }
     }
 
-    // Método para verificar si hay trampas adyacentes
+// Método para verificar si hay trampas adyacentes
     private bool HayTrampaAdyacente(int x, int y)
     {
     // Verificar las celdas adyacentes (arriba, abajo, izquierda, derecha)
@@ -160,7 +165,7 @@ public class Laberinto
             laberinto[x, y - 1].EsTrampa || // Izquierda
             laberinto[x, y + 1].EsTrampa;   // Derecha
     }
-
+//Selecciona las posiciones de inicio de los dos jugadores
     private void SeleccionarCeldas()
     {
         Random rand = new Random();
@@ -196,21 +201,9 @@ public class Laberinto
             }
         }
 
-        // Intentar seleccionar la celda de salida, asegurándose de que no sea adyacente a las celdas de inicio
-        /*while (celdaSalida == (-1, -1))
-        {
-            int x = rand.Next(1, dimensiones - 1);
-            int y = rand.Next(1, dimensiones - 1);
-
-            if (laberinto[x, y].Valor == 0 && !SonAdyacentes(celdaInicio1, (x, y)) && !SonAdyacentes(celdaInicio2, (y, x)))
-            {
-                celdaSalida = (x, y);
-                laberinto[x, y].Valor = 7; // Asignar valor 7 a la celda de salida
-                laberinto[x, y].EsPosicionClave=true;
-            }
-        }*/
+        
     }
-
+//Genera la salida cuando se recogen todas las esferas del drag'on
     public void GenerarSalida(int posxjugador1, int posyjugador1, int posxjugador2, int posyjugador2)
     {
         (int, int) celdaSalida = (-1, -1);
@@ -234,38 +227,7 @@ public class Laberinto
         
     }
 
-
-    private void PonerEsferasDelDragon(){
-
-
-        Random rand = new Random();
-
-        bool esferacolocada;
-        
-
-        for (int i = 1; i <= 7; i++)
-        {
-            int x, y;
-            esferacolocada=false;
-        
-            while (!esferacolocada)
-            {
-            x = rand.Next(1, dimensiones - 1);
-            y = rand.Next(1, dimensiones - 1);
-
-                if (laberinto[x, y].Valor == 0  && !laberinto[x,y].EsEsferaDelDragon) // Verificar si la celda está vacía
-                {
-                    laberinto[x,y].EsEsferaDelDragon=true;
-                    esferacolocada=true;
-                }
-            }
-        }
-
-
-
-
-    }
-
+//M'etodo para poner las esferas del drag'on en el laberinto
     public void Poner1EsferasDelDragon(){
 
 
@@ -296,7 +258,7 @@ public class Laberinto
 
     }
 
-    // Método para verificar si dos celdas son adyacentes
+// Método para verificar si dos celdas son adyacentes
     private bool SonAdyacentes((int, int) celda1, (int, int) celda2)
     {
         return (Math.Abs(celda1.Item1 - celda2.Item1) == 1 && celda1.Item2 == celda2.Item2) ||
@@ -304,84 +266,5 @@ public class Laberinto
     }
 
 
-    private int[,] CeldasInaccesibles(){
-
-        int [,] distancia=new int[laberinto.GetLength(0),laberinto.GetLength(1)];
-
-        distancia[1,1]=1;
-
-        int[] df={-1,1,0,0};
-        int[] dc={0,0,1,-1};
-
-        bool huboCambio;
-
-        do{
-
-            huboCambio=false;
-
-            // Para cada posible celda del tablero 
-            for (int i= 1;i<laberinto.GetLength(0)-1 ; i++){
-
-                for (int j = 1; j <laberinto.GetLength(1)-1; j++)
-                {
-
-                    // Saltarse las celdas no marcadas 
-                    if (distancia [i, j] == 0) continue;
-
-                    // Saltarse las celdas inválidas
-
-                    if (!laberinto[i, j].Esaccesible) continue; // Hay obstáculo en la celda
-
-                    // Inspeccionar celdas vecinas a la celda [i, j]
-
-                    for (int d=0; d<df.Length; d++){
-
-                        int vf=i+df[d];
-
-                        int vc=j+dc[d];
-
-                        // Determinar si es un vecino válido y no ha sido marcado 
-                        if (PosicionValida (laberinto.GetLength(0)-1,laberinto.GetLength(1)-1, vf, vc) && distancia [vf, vc] == 0 && laberinto [vf, vc].Esaccesible) {  
-
-                            // Actualizar esta celda 
-                            distancia [vf, vc]=distancia [i, j] + 1;
-                            huboCambio = true;
-
-
-                            break;
-
-                        }
-                    } 
-                }
-            }
-        }while (huboCambio);
-
-    return distancia;
-    }
-
-    private void QuitarCeldasInaccesibles(int [,] accesibles){
-
-        for (int i = 0; i < laberinto.GetLength(0); i++)
-        {
-            for (int j = 0; j < laberinto.GetLength(1); j++)
-            {
-                if(laberinto[i,j].Valor==accesibles[i,j]) 
-                    laberinto[i,j].Valor=1;
-                    laberinto[i,j].Esaccesible=false;
-            }
-        }
-    }
-
-
-    private bool PosicionValida(int filas, int columnas, int x, int y)
-    {
-        // Verificar si las coordenadas están dentro de los límites del laberinto
-        if (x < 0 || x >= filas || y < 0 || y >= columnas)
-        {
-            return false; // Fuera de los límites
-        }
-
-        // Verificar si la celda es accesible
-        return laberinto[x, y].Esaccesible; // Devuelve true si es accesible, false si no lo es
-    }
+    
 }

@@ -52,6 +52,8 @@ namespace Mazerunners
 
         }
 
+
+//Encargado de llamar a los m'etodos para graficar de la clase jugador
         private void timer1_Tick(object sender, EventArgs e)
         {
 
@@ -88,9 +90,9 @@ namespace Mazerunners
             //jugadores[1].jugador_accion=false;
 
         }
-
-        
-
+//Cuando un usuario pulsa una tecla llama al m'etodo mover de la clase jugador
+//Comprueba si se cumpli'o la condici'on de victoria para detener el juego
+//Cambia de turno
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
 
@@ -134,7 +136,7 @@ namespace Mazerunners
             } 
 
         }
-
+//Actualiza la informaci'on de las etiquetas label
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
             //jugadores[turno_del_jugador % 2].jugador_accion = false;
