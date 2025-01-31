@@ -11,7 +11,7 @@ Instrucciones para jugar:
 4.	Utilizar las teclas W (hacia arriba), S (hacia abajo), A (izquierda) y D (derecha) para moverse.
 5.	Utilizar la tecla P para atacar y la tecla O para usar una habilidad.
 6.	Si un jugador introduce otra tecla distinta a las mencionadas, realiza un movimiento no válido, ataca o usa su habilidad cuando los turnos sin atacar o el tiempo de enfriamiento son mayores que cero pierde su turno.
-7.	Si un jugador está paralizado (turnos sin moverse>0) se salta su turno.
+7.	Si un jugador está paralizado (turnos sin moverse>0) se salta su turno, si ambos jugadores están paralizados pulsar cualquier tecla hasta que alguno de los dos pueda moverse.
 
 Personajes y habilidades: 
 •	Goku: Genkidama (4 de daño al oponente)
@@ -22,7 +22,7 @@ Personajes y habilidades:
 •	Cell: Absorción (reduce la vida del oponente y aumenta la suya)
 •	Krillin: Parálisis (impide el movimiento de los oponentes)
 •	Androide 18: Explosión (disminuye la vida del oponente y la suya propia)
-•	Trunks: Duplica su velocidad cada vez que se activa la habilidad
+•	Trunks: Aumenta su velocidad cada vez que se activa la habilidad
 •	Majin Buu: Aumenta su vida a 30 y aumenta en 2 su fuerza de ataque cada vez que se activa la habilidad
 
 Al ser mucho más poderosas sus habilidades Trunks y Majin Boo cuentan con un tiempo de enfriamiento mucho mayor que el de los demás personajes (150 turnos).

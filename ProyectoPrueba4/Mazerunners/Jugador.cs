@@ -75,7 +75,7 @@ public class Jugador
         else if (Personaje.Nombre_del_Personaje == "Freezer") return "img/freezer.png";
         else if (Personaje.Nombre_del_Personaje == "Vegeta") return "img/vegeta.png";
         else if (Personaje.Nombre_del_Personaje == "Krilin") return "img/krillin.png";
-        else if (Personaje.Nombre_del_Personaje == "Jiren") return "img/majin_boo.png";
+        else if (Personaje.Nombre_del_Personaje == "Majin Buu") return "img/majin_boo.png";
         else if (Personaje.Nombre_del_Personaje == "Gohan") return "img/gohan.png";
         else if (Personaje.Nombre_del_Personaje == "Androide 18") return "img/androide.png";
         else if (Personaje.Nombre_del_Personaje == "Piccolo") return "img/piccolo.png";

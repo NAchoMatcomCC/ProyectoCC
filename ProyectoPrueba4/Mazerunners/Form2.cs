@@ -25,8 +25,8 @@ namespace Mazerunners
         private void SeleccionPersonajes_Load(object sender, EventArgs e)
         {
             // Crear listas de personajes para cada combobox
-            string[] personajes1 = { "Goku", "Freezer", "Vegeta", "Krilin", "Jiren", "Gohan", "Androide 18", "Piccolo", "Trunks", "Cell" };
-            string[] personajes2 = { "Goku", "Freezer", "Vegeta", "Krilin", "Jiren", "Gohan", "Androide 18", "Piccolo", "Trunks", "Cell" };
+            string[] personajes1 = { "Goku", "Freezer", "Vegeta", "Krilin", "Majin Buu", "Gohan", "Androide 18", "Piccolo", "Trunks", "Cell" };
+            string[] personajes2 = { "Goku", "Freezer", "Vegeta", "Krilin", "Majin Buu", "Gohan", "Androide 18", "Piccolo", "Trunks", "Cell" };
 
             // Inicializar combobox1 con personajes1
             comboBox1.DataSource = personajes1;
@@ -40,7 +40,7 @@ namespace Mazerunners
 
             // Aquí irá el código para confirmar la selección de personajes
 
-            string[] personajes = { "Goku", "Freezer", "Vegeta", "Krilin", "Jiren", "Gohan", "Androide 18", "Piccolo", "Trunks", "Cell" };
+            string[] personajes = { "Goku", "Freezer", "Vegeta", "Krilin", "Majin Buu", "Gohan", "Androide 18", "Piccolo", "Trunks", "Cell" };
 
             personajes_seleccionados[0] = Array.IndexOf(personajes, comboBox1.SelectedItem.ToString()) + 1;
             personajes_seleccionados[1] = Array.IndexOf(personajes, comboBox2.SelectedItem.ToString()) + 1;

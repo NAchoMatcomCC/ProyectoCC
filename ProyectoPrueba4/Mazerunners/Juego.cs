@@ -7,7 +7,7 @@ public class Juego
 {
     private Laberinto laberinto;
     private List<Jugador> jugadores; // Lista para almacenar múltiples jugadores
-    //private CPU ia;
+    
     private int[] numeros_de_personajes;
     public bool juego_terminado;
 

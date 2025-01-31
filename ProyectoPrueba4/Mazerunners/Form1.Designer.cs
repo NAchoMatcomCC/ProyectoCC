@@ -42,6 +42,7 @@
             label10 = new Label();
             label11 = new Label();
             label12 = new Label();
+            label13 = new Label();
             SuspendLayout();
             // 
             // timer1
@@ -170,11 +171,22 @@
             label12.TabIndex = 11;
             label12.Text = "label12";
             // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.BackColor = SystemColors.InactiveCaption;
+            label13.Location = new Point(1076, 500);
+            label13.Name = "label13";
+            label13.Size = new Size(87, 25);
+            label13.TabIndex = 12;
+            label13.Text = "Turno de:";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1331, 1050);
+            Controls.Add(label13);
             Controls.Add(label12);
             Controls.Add(label11);
             Controls.Add(label10);
@@ -212,5 +224,6 @@
         private Label label10;
         private Label label11;
         private Label label12;
+        private Label label13;
     }
 }

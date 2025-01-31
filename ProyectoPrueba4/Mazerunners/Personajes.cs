@@ -15,7 +15,7 @@ public class Personaje
         Freezer,
         Vegeta,
         Krilin,
-        Jiren,
+        MajinBuu,
         Gohan,
         Androide18,
         Piccolo,
@@ -46,23 +46,23 @@ public class Personaje
                 break;
 
             case PersonajeElegir.Freezer:
-                Paralizar(jugador2,2);
-                if(jugador2.Vida>2) Habilidad_Ataque(jugador1, jugador2,2);
+                Paralizar(jugador2,5);
+                Habilidad_Ataque(jugador1, jugador2,2);
                 tiempo_de_enfriamiento=22;
                 break;
 
             case PersonajeElegir.Vegeta:
                 Habilidad_Ataque(jugador1, jugador2, 3);
-                Paralizar(jugador2,1);
+                Paralizar(jugador2,2);
                 tiempo_de_enfriamiento=18;
                 break;
 
             case PersonajeElegir.Krilin:
-                Paralizar(jugador2,3);
+                Paralizar(jugador2,5);
                 tiempo_de_enfriamiento=16;
                 break;
 
-            case PersonajeElegir.Jiren:
+            case PersonajeElegir.MajinBuu:
                 PoderAbsoluto(jugador1);
                 jugador1.jugador_fuerza_ataque+=1;
                 tiempo_de_enfriamiento=150;
@@ -85,7 +85,6 @@ public class Personaje
                 break;
 
             case PersonajeElegir.Trunks:
-                //Habilidad_Ataque(jugador1, jugador2,2); 
                 jugador1.jugador_velocidad+=1;
                 tiempo_de_enfriamiento=150;;
                 break;
@@ -115,8 +114,8 @@ public class Personaje
                     return "Vegeta";
                 case PersonajeElegir.Krilin:
                     return "Krilin";
-                case PersonajeElegir.Jiren:
-                    return "Jiren";
+                case PersonajeElegir.MajinBuu:
+                    return "Majin Buu";
                 case PersonajeElegir.Gohan:
                     return "Gohan";
                 case PersonajeElegir.Androide18:
@@ -188,7 +187,7 @@ public class Personaje
             return PersonajeElegir.Krilin;
         }
         else if (n==5){
-            return PersonajeElegir.Jiren;
+            return PersonajeElegir.MajinBuu;
         }
         else if (n==6){
             return PersonajeElegir.Gohan;

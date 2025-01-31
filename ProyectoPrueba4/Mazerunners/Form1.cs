@@ -16,6 +16,8 @@ namespace Mazerunners
         private Laberinto laberinto;
 
         private Bitmap img;
+        //private Image backgroundImage;
+
 
         private bool laberintoDibujado;
         public Form1(int[] n)
@@ -30,7 +32,7 @@ namespace Mazerunners
             laberinto = new Laberinto();
             jugadores = new List<Jugador>();
 
-
+            //backgroundImage = Image.FromFile("img/escenario.png");
 
 
 
@@ -49,7 +51,8 @@ namespace Mazerunners
             turno_del_jugador = 0;
 
             laberintoDibujado = false;
-
+            label5.Text = "Jugador1: "+jugadores[0].Personaje.Nombre_del_Personaje;
+            label6.Text = "Jugador2: "+jugadores[1].Personaje.Nombre_del_Personaje;
         }
 
 
@@ -71,7 +74,7 @@ namespace Mazerunners
                 BufferedGraphicsContext bfc = BufferedGraphicsManager.Current;
                 BufferedGraphics bf = bfc.Allocate(g, this.ClientRectangle);
                 bf.Graphics.Clear(Color.White);
-
+                //bf.Graphics.DrawImage(backgroundImage, this.ClientRectangle);
                 // Copiar la parte fija del laberinto sobre el buffer
                 bf.Graphics.CopyFromScreen(this.PointToScreen(Point.Empty), Point.Empty, this.ClientRectangle.Size);
 
@@ -157,8 +160,8 @@ namespace Mazerunners
             string vida2 = "Vida Jugador 2: " + jugadores[1].Vida.ToString();
             label7.Text = vida2;
 
-            label2.Text = "Turnos sin moverser: " + jugadores[0].NoMoversePorTurnos1.ToString();
-            label8.Text = "Turnos sin moverser: " + jugadores[1].NoMoversePorTurnos1.ToString();
+            label2.Text = "Turnos sin moverse: " + jugadores[0].NoMoversePorTurnos1.ToString();
+            label8.Text = "Turnos sin moverse: " + jugadores[1].NoMoversePorTurnos1.ToString();
 
             label3.Text = "Turnos sin atacar: " + jugadores[0].turnos_sin_atacar.ToString();
             label9.Text = "Turnos sin atacar: " + jugadores[1].turnos_sin_atacar.ToString();
@@ -168,6 +171,8 @@ namespace Mazerunners
 
             label11.Text = "Esferas del dragón recogidas: " + jugadores[0].cant_esferas_dragon.ToString();
             label12.Text = "Esferas del dragón recogidas: " + jugadores[1].cant_esferas_dragon.ToString();
+
+            label13.Text = jugadores[turno_del_jugador%2].PuedeMoverse()? "Turno del jugador"+((turno_del_jugador)%2+1).ToString()+": " + jugadores[(turno_del_jugador ) % 2].Personaje.Nombre_del_Personaje : "Turno del jugador"+((turno_del_jugador+1)%2+1).ToString()+": " + jugadores[(turno_del_jugador+1) % 2].Personaje.Nombre_del_Personaje;
         }
         private void Form1_Load(object sender, EventArgs e)
         {
